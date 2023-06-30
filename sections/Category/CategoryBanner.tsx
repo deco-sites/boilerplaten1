@@ -1,1 +1,1 @@
-export { default, loader } from "$store/components/ui/CategoryBanner.tsx";
+export { default } from "$store/components/ui/BannerPLP.tsx";

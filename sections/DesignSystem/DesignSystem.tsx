@@ -4,10 +4,10 @@
  * License: MIT (https://github.com/saadeghi/daisyui/blob/37bca23444bc9e4d304362c14b7088f9a08f1c74/LICENSE)
  * https://github.com/saadeghi/daisyui/blob/37bca23444bc9e4d304362c14b7088f9a08f1c74/src/docs/src/routes/theme-generator.svelte
  */
-import { Color } from "https://deno.land/x/color@v0.3.0/mod.ts";
-import { useId } from "preact/hooks";
 import { Head } from "$fresh/runtime.ts";
 import Icon from "$store/components/ui/Icon.tsx";
+import { Color } from "https://deno.land/x/color@v0.3.0/mod.ts";
+import { useId } from "preact/hooks";
 
 export interface OptionalColors {
   /**
@@ -227,8 +227,7 @@ export interface Font {
 }
 
 export interface Props {
-  colors?: Colors;
-  optionalColors?: OptionalColors;
+  colors?: Colors & { optional?: OptionalColors };
   miscellaneous?: Miscellaneous;
   fonts?: Font;
 }
@@ -303,26 +302,33 @@ const toVariables = (t: Theme): [string, string][] => {
   return [...colorVariables, ...miscellaneousVariables];
 };
 
-const defaultTheme = {
-  "primary": "hsla(209, 28%, 21%, 1)",
-  "primary-content": "hsla(0, 0%, 100%, 1)",
-  "secondary": "hsla(104, 18%, 46%, 1)",
-  "secondary-content": "hsla(0, 0%, 100%, 1)",
-  "accent": "hsla(8, 69%, 65%, 1)",
-  "accent-content": "hsla(0, 0%, 100%, 1)",
-  "neutral": "hsla(0, 0%, 47%, 1)",
-  "base-100": "hsla(0, 0%, 100%, 1)",
-  "success": "hsl(150 62% 95%)",
-  "warning": "hsl(43 100% 95%)",
-  "error": "hsl(9 100% 95%)",
+export const defaultTheme = {
+  "primary": "hsl(173, 71%, 50%)",
+  "secondary": "hsl(249, 80%, 54%)",
+  "accent": "hsl(0, 0%, 100%)",
+  "neutral": "hsl(250, 7%, 83%)",
+  "base-100": "hsl(0, 0%, 100%)",
+  "base-200": "hsl(250, 7%, 83%)",
+  "base-300": "hsl(240, 8%, 59%)",
+  "base-content": "hsl(251, 72%, 34%)",
+  "success": "hsl(145, 63%, 42%)",
+  "warning": "hsl(45, 74%, 56%)",
+  "error": "hsl(358, 84%, 56%)",
   "info": "hsl(220 100% 97%)",
 
+  "emphasis": "hsl(337, 80%, 57%)",
+
+  "primary-focus": "hsl(249, 80%, 54%)",
+  "primary-content": "hsl(0, 0%, 100%)",
+  "secondary-focus": "hsl(251, 72%, 34%)",
+  "secondary-content": "hsl(0, 0%, 100%)",
+
   "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
-  "--rounded-btn": "0.5rem", // border radius rounded-btn utility class, used in buttons and similar element
+  "--rounded-btn": "99rem", // border radius rounded-btn utility class, used in buttons and similar element
   "--rounded-badge": "1.9rem", // border radius rounded-badge utility class, used in badges and similar
   "--animation-btn": "0.25s", // duration of animation when you click on button
   "--animation-input": "0.2s", // duration of animation for inputs like checkbox, toggle, radio, etc
-  "--btn-text-case": "uppercase", // set default text transform for buttons
+  "--btn-text-case": "none", // set default text transform for buttons
   "--btn-focus-scale": "0.95", // scale transform of button when you focus on it
   "--border-btn": "1px", // border width of buttons
   "--tab-border": "1px", // border width of tabs
@@ -340,25 +346,21 @@ const defaultTheme = {
  */
 function Section({
   colors,
-  optionalColors,
   miscellaneous,
-  fonts,
+  fonts = {
+    fontFamily: "Albert Sans",
+    styleInnerHtml:
+      "@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap');",
+  },
 }: Props) {
   const id = useId();
   const theme = {
     ...defaultTheme,
     ...colors,
-    ...optionalColors,
+    ...colors?.optional,
     ...miscellaneous,
   };
-  const variables = [
-    ...toVariables(theme),
-    [
-      "--font-family",
-      fonts?.fontFamily ??
-        "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
-    ],
-  ]
+  const variables = [...toVariables(theme), ["--font-family", fonts.fontFamily]]
     .map(([cssVar, value]) => `${cssVar}: ${value}`)
     .join(";");
 
@@ -367,12 +369,10 @@ function Section({
       <meta name="theme-color" content={theme["primary"]} />
       <meta name="msapplication-TileColor" content={theme["primary"]} />
       <style
-        type="text/css"
         id={`__DESIGN_SYSTEM_FONT-${id}`}
-        dangerouslySetInnerHTML={{ __html: fonts?.styleInnerHtml ?? "" }}
+        dangerouslySetInnerHTML={{ __html: fonts.styleInnerHtml }}
       />
       <style
-        type="text/css"
         id={`__DESIGN_SYSTEM_VARS-${id}`}
         dangerouslySetInnerHTML={{
           __html: `:root {${variables}}`,
