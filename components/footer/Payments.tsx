@@ -25,6 +25,7 @@ export default function FooterSectionList({ list, label }: FooterSectionList) {
             <img
               loading="lazy"
               src={item.image}
+              alt="footer image"
               class="relative w-auto h-auto mix-blend-multiply"
             />
           </li>
