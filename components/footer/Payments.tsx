@@ -2,6 +2,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface FooterSectionItem {
   image?: LiveImage;
+  alt: string;
 }
 
 export interface FooterSectionList {
@@ -21,11 +22,13 @@ export default function FooterSectionList({ list, label }: FooterSectionList) {
       </span>
       <ul class="flex flex-wrap gap-2 pt-5">
         {list.map((item) => (
-          <li class="bg-[#f6f6f6] rounded w-12 h-8 flex items-center justify-center">
+          <li class="rounded flex items-center justify-center">
             <img
               loading="lazy"
               src={item.image}
-              alt="footer image"
+              width={44}
+              height={30}
+              alt={item.alt || "footer image"}
               class="relative w-auto h-auto mix-blend-multiply"
             />
           </li>

@@ -8580,13 +8580,18 @@
           "anyOf": [
             {
               "type": "string",
-              "const": "WhatsApp",
-              "default": "WhatsApp"
+              "const": "Twitter",
+              "default": "Twitter"
             },
             {
               "type": "string",
-              "const": "Twitter",
-              "default": "Twitter"
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Pinterest",
+              "default": "Pinterest"
             },
             {
               "type": "string",
@@ -8595,8 +8600,13 @@
             },
             {
               "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
             },
             {
               "type": "string",
@@ -8605,8 +8615,28 @@
             },
             {
               "type": "string",
-              "const": "Tiktok",
-              "default": "Tiktok"
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "YouTubeOutline",
+              "default": "YouTubeOutline"
+            },
+            {
+              "type": "string",
+              "const": "WhatsAppOutline",
+              "default": "WhatsAppOutline"
+            },
+            {
+              "type": "string",
+              "const": "InstagramOutline",
+              "default": "InstagramOutline"
+            },
+            {
+              "type": "string",
+              "const": "FacebookOutline",
+              "default": "FacebookOutline"
             }
           ],
           "type": "string",
@@ -9470,7 +9500,69 @@
       "type": "object",
       "properties": {
         "icon": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Twitter",
+              "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Pinterest",
+              "default": "Pinterest"
+            },
+            {
+              "type": "string",
+              "const": "YouTube",
+              "default": "YouTube"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "YouTubeOutline",
+              "default": "YouTubeOutline"
+            },
+            {
+              "type": "string",
+              "const": "WhatsAppOutline",
+              "default": "WhatsAppOutline"
+            },
+            {
+              "type": "string",
+              "const": "InstagramOutline",
+              "default": "InstagramOutline"
+            },
+            {
+              "type": "string",
+              "const": "FacebookOutline",
+              "default": "FacebookOutline"
+            }
+          ],
+          "type": "string",
           "title": "Icon"
         },
         "label": {
@@ -9480,17 +9572,12 @@
         "href": {
           "type": "string",
           "title": "Href"
-        },
-        "openNewView": {
-          "type": "boolean",
-          "title": "Open New View"
         }
       },
       "required": [
         "icon",
         "label",
-        "href",
-        "openNewView"
+        "href"
       ],
       "title": "SocialItem"
     },
@@ -9507,9 +9594,15 @@
         "image": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
         }
       },
-      "required": [],
+      "required": [
+        "alt"
+      ],
       "title": "FooterSectionItem"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvZm9vdGVyL1BheW1lbnRzLnRzeA==@FooterSectionItem[]": {
@@ -9526,6 +9619,10 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
         },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
         "label": {
           "type": "string",
           "title": "Label"
@@ -9533,6 +9630,7 @@
       },
       "required": [
         "image",
+        "alt",
         "label"
       ],
       "title": "FooterImage"
@@ -10723,6 +10821,13 @@
           ],
           "description": "Link",
           "title": "Href"
+        },
+        "preload": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Preload"
         }
       },
       "required": [
