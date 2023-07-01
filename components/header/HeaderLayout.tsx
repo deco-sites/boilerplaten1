@@ -2,7 +2,7 @@ import { ICartProps } from "$store/components/minicart/Cart.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Modals from "$store/islands/HeaderModals.tsx";
-import SearchBar from "$store/islands/SearchBar.tsx";
+import SearchBar from "$store/islands/HeaderSearchbar.tsx";
 import NavItem, { INavItem } from "./NavItem.tsx";
 import { megaMenuDefaultItems } from "./constants.ts";
 export interface Props {
@@ -45,8 +45,9 @@ function HeaderLayout(
             : null}
         </div>
         <div class="flex items-center w-auto lg:justify-between xl:gap-8 lg:gap-2">
-          <SearchBar placeholder={placeholder} variant="desktop" />
           <div class="flex items-center xl:gap-4 lg:gap-2">
+            <Buttons variant="search" />
+            <SearchBar searchbar={{ variant: "desktop", placeholder }} />
             <a
               class="max-lg:hidden rounded-full border-2 border-solid no-animation btn-square btn-ghost flex items-center justify-center"
               href=""
@@ -58,7 +59,6 @@ function HeaderLayout(
                 height={24}
               />
             </a>
-            <Buttons variant="search" />
             <Buttons variant="cart" />
           </div>
         </div>

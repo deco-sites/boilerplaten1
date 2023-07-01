@@ -9,7 +9,7 @@ function SearchButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost lg:hidden flex items-center justify-center"
+      class="btn-square btn-ghost flex items-center justify-center"
       aria-label="search icon button"
       onClick={() => {
         displaySearchbar.value = !displaySearchbar.peek();
