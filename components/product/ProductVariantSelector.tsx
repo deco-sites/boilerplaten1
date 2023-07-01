@@ -15,12 +15,15 @@ function VariantSelector({ product, product: { url } }: Props) {
         <li class="flex flex-col gap-[10px]">
           <span class="text-xs text-base-300">{name}</span>
           <ul class="flex flex-row gap-[5px]">
-            {Object.entries(possibilities[name]).map(([value, [link]]) => (
+            {Object.entries(possibilities[name]).map((
+              [value, { inStock, urls }],
+            ) => (
               <li>
-                <a href={link}>
+                <a href={urls[0]}>
                   <Avatar
                     content={value}
-                    variant={link === url ? "active" : "default"}
+                    variant={inStock ? "default" : "disabled"}
+                    active={url === urls[0]}
                   />
                 </a>
               </li>

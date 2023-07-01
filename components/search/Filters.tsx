@@ -42,7 +42,8 @@ function FilterValues({ key, values }: FilterToggle) {
             <a href={url}>
               <Avatar
                 content={value}
-                variant={selected ? "active" : "default"}
+                variant={"default"}
+                active={selected}
               />
             </a>
           );
