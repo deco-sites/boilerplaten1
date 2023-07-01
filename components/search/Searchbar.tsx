@@ -167,36 +167,43 @@ function Searchbar({
           )
           : (
             <>
-              <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
-                <div class="flex gap-2 items-center">
-                  <span
-                    class="font-medium text-xl"
-                    role="heading"
-                    aria-level={3}
-                  >
-                    Sugestões
-                  </span>
-                  {loading.value && <Spinner />}
-                </div>
-                <ul id="search-suggestion" class="flex flex-col gap-6">
-                  {suggestions.value!.searches?.map(({ term }) => (
-                    <li>
-                      <a href={`/s?q=${term}`} class="flex gap-4 items-center">
-                        <span>
-                          <Icon
-                            id="MagnifyingGlass"
-                            size={20}
-                            strokeWidth={0.01}
-                          />
-                        </span>
-                        <span>
-                          {term}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {suggestions.value!.searches?.length
+                ? (
+                  <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
+                    <div class="flex gap-2 items-center">
+                      <span
+                        class="font-medium text-xl"
+                        role="heading"
+                        aria-level={3}
+                      >
+                        Sugestões
+                      </span>
+                      {loading.value && <Spinner />}
+                    </div>
+                    <ul id="search-suggestion" class="flex flex-col gap-6">
+                      {suggestions.value!.searches?.map(({ term }) => (
+                        <li>
+                          <a
+                            href={`/s?q=${term}`}
+                            class="flex gap-4 items-center"
+                          >
+                            <span>
+                              <Icon
+                                id="MagnifyingGlass"
+                                size={20}
+                                strokeWidth={0.01}
+                              />
+                            </span>
+                            <span>
+                              {term}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+                : null}
               <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
                 <div class="flex gap-2 items-center">
                   <span
