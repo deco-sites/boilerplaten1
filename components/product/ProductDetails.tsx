@@ -86,7 +86,9 @@ function ProductInfo(
       {/* Code and name */}
       <div class="mt-4 sm:mt-0">
         <h1>
-          <span class="font-medium text-2xl">{isVariantOf?.name}</span>
+          <span class="font-medium text-base-content text-2xl">
+            {isVariantOf?.name}
+          </span>
         </h1>
         <div>
           <span class="text-sm text-base-300">
@@ -136,7 +138,7 @@ function ProductInfo(
       {/* Description card */}
       <div className="collapse collapse-plus border-b border-neutral">
         <input type="checkbox" />
-        <div className="collapse-title text-xl font-medium">
+        <div className="collapse-title px-0">
           Detalhes do produto
         </div>
         <div className="readmore text-xs leading-tight collapse-content text-base-300">
@@ -150,10 +152,10 @@ function ProductInfo(
       {/* Shipping Simulation */}
       <div className="collapse collapse-plus">
         <input type="checkbox" />
-        <div className="collapse-title text-xl font-medium">
+        <div className="collapse-title px-0">
           Calcular frete e entrega
         </div>
-        <div className="collapse-content">
+        <div className="collapse-content px-0">
           <ShippingSimulation
             items={[{
               id: Number(product.sku),
