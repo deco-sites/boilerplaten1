@@ -1,10 +1,12 @@
 import { ICartProps } from "$store/components/minicart/Cart.tsx";
+import { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Modals from "$store/islands/HeaderModals.tsx";
 import SearchBar from "$store/islands/HeaderSearchbar.tsx";
 import NavItem, { INavItem } from "./NavItem.tsx";
 import { megaMenuDefaultItems } from "./constants.ts";
+
 export interface Props {
   /**
    * @title Items do menu
@@ -12,22 +14,20 @@ export interface Props {
    */
   navItems?: INavItem[];
   /**
-   * @default O que esta procurando?
-   * @title Titulo da busca
-   */
-  placeholder?: string;
-
-  /**
-   * @title Configurar minicart
+   * @title Minicart settings
    */
   minicart: ICartProps;
+  /**
+   * @title Search bar settings
+   */
+  searchbar: SearchbarProps;
 }
 
 function HeaderLayout(
   {
     navItems = megaMenuDefaultItems as INavItem[],
-    placeholder = "O que esta procurando?",
     minicart,
+    searchbar,
   }: Props,
 ) {
   return (
@@ -47,7 +47,7 @@ function HeaderLayout(
         <div class="flex items-center w-auto lg:justify-between xl:gap-8 lg:gap-2">
           <div class="flex items-center xl:gap-4 lg:gap-2">
             <Buttons variant="search" />
-            <SearchBar searchbar={{ variant: "desktop", placeholder }} />
+            <SearchBar searchbar={{ ...searchbar, variant: "mobile" }} />
             <a
               class="max-lg:hidden rounded-full border-2 border-solid no-animation btn-square btn-ghost flex items-center justify-center"
               href=""
@@ -67,9 +67,6 @@ function HeaderLayout(
       <Modals
         minicart={minicart}
         menu={{ items: navItems }}
-        searchbar={{
-          placeholder,
-        }}
       />
     </header>
   );
