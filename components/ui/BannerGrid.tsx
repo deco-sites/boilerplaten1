@@ -285,7 +285,7 @@ export default function BannnerGrid({
               label,
               hoverUrl,
             },
-            index
+            index,
           ) => (
             <div
               key={index}
@@ -297,26 +297,27 @@ export default function BannnerGrid({
            `}
             >
               <a class="block relative" href={href}>
-                {text ? (
-                  <div
-                    class={`w-full absolute flex z-10 md:p-10 p-5  ${
-                      VERTICAL_ALIGNMENT[text.verticalAlignment ?? "Top"]
-                    } ${text.reverse ? "flex-col-reverse" : "flex-col"} ${
-                      HORIZONTAL_ALIGNMENT[text.horizontalAlignment ?? "Left"]
-                    }`}
-                  >
-                    <span
-                      class={`text-[40px] md:text-7xl my-2 md:my-4 font-medium`}
-                      style={{
-                        color: text?.color ? text.color : "#482BE7",
-                      }}
+                {text
+                  ? (
+                    <div
+                      class={`w-full absolute flex z-10 md:p-10 p-5  ${
+                        VERTICAL_ALIGNMENT[text.verticalAlignment ?? "Top"]
+                      } ${text.reverse ? "flex-col-reverse" : "flex-col"} ${
+                        HORIZONTAL_ALIGNMENT[text.horizontalAlignment ?? "Left"]
+                      }`}
                     >
-                      {label}
-                    </span>
-                    <div class="flex justify-between">
-                      <ul class="flex flex-wrap gap-2 items-center justify-start">
-                        {text?.badges?.length
-                          ? text.badges.map((item) => (
+                      <span
+                        class={`text-[40px] md:text-7xl my-2 md:my-4 font-medium`}
+                        style={{
+                          color: text?.color ? text.color : "#482BE7",
+                        }}
+                      >
+                        {label}
+                      </span>
+                      <div class="flex justify-between">
+                        <ul class="flex flex-wrap gap-2 items-center justify-start">
+                          {text?.badges?.length
+                            ? text.badges.map((item) => (
                               <li
                                 class={`p-2 rounded-lg text-[10px] md:text-xs uppercase`}
                                 style={{
@@ -331,44 +332,45 @@ export default function BannnerGrid({
                                 {item.title}
                               </li>
                             ))
-                          : null}
-                      </ul>
-                      <a
-                        href={hoverUrl ? hoverUrl : "/"}
-                        class="hidden border-2 text-white hover:text-dark-blue border-white transition duration-300 hover:border-light-green pt-3 pb-3 pl-8 pr-8 rounded-full items-center group-hover:flex hover:bg-light-green"
-                      >
-                        Conferir
-                        <svg
-                          class="ml-2"
-                          width="18"
-                          height="18"
-                          viewBox="0 0 18 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                            : null}
+                        </ul>
+                        <a
+                          href={hoverUrl ? hoverUrl : "/"}
+                          class="hidden border-2 text-white hover:text-dark-blue border-white transition duration-300 hover:border-light-green pt-3 pb-3 pl-8 pr-8 rounded-full items-center group-hover:flex hover:bg-light-green"
                         >
-                          <g id="Icon">
-                            <path
-                              id="Vector"
-                              d="M3.75 9H14.25"
-                              stroke="white"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              id="Vector_2"
-                              d="M9 3.75L14.25 9L9 14.25"
-                              stroke="white"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </g>
-                        </svg>
-                      </a>
+                          Conferir
+                          <svg
+                            class="ml-2"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="Icon">
+                              <path
+                                id="Vector"
+                                d="M3.75 9H14.25"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                id="Vector_2"
+                                d="M9 3.75L14.25 9L9 14.25"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ) : null}
+                  )
+                  : null}
                 <img
                   class={`w-full h-full  ${
                     RADIUS_MOBILE[borderRadius.mobile ?? "none"]
@@ -387,9 +389,10 @@ export default function BannnerGrid({
                 class={`invisible transition duration-700 group-hover:visible w-full z-999 top-0 opacity-0 group-hover:opacity-60 h-full bg-default-blue absolute ${
                   RADIUS_MOBILE[borderRadius.mobile ?? "none"]
                 } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}`}
-              ></div>
+              >
+              </div>
             </div>
-          )
+          ),
         )}
       </div>
     </section>

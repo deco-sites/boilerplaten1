@@ -10,9 +10,9 @@ export default {
         "neutral-100": "#EDEDED",
         "neutral-200": "#F7F7F7",
         "light-green": "#25DAC5",
-        "default-blue":  "#482BE7",
+        "default-blue": "#482BE7",
         "dark-blue": "#2F1893",
-        "white": "#fff"
+        "white": "#fff",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
