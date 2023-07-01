@@ -107,12 +107,13 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
       ? "left"
       : "center";
-  const skuSelector = variants.map(([value, [link]]) => (
+  const skuSelector = variants.map(([value, { urls }]) => (
     <li>
-      <a href={link}>
+      <a href={urls[0]}>
         <Avatar
-          variant={link === url ? "active" : "default"}
+          variant={"default"}
           content={value}
+          active={urls[0] === url}
         />
       </a>
     </li>

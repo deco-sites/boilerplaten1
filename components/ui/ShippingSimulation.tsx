@@ -95,7 +95,7 @@ function ShippingSimulation({ items, shipmentPolitics }: Props) {
   }, []);
 
   return (
-    <div class="flex flex-col mt-[10px] gap-5 p-[30px] rounded-[10px] bg-[#F7F7F7] text-base-300">
+    <div class="flex flex-col mt-[10px] gap-5 p-[30px] rounded-[10px] bg-neutral-200 text-base-300">
       <p class="text-justify">
         Calcule o frete e o prazo de entrega estimados para sua região. Informe
         seu CEP:
@@ -111,7 +111,7 @@ function ShippingSimulation({ items, shipmentPolitics }: Props) {
           <input
             as="input"
             type="text"
-            class="input input-bordered input-sm text-xs border-2 focus:outline-none w-full max-w-xs"
+            class="input input-bordered input-sm text-xs border-2 focus:outline-none w-full max-w-xs !py-4"
             placeholder="Seu cep aqui"
             value={postalCode.value}
             maxLength={8}
@@ -122,7 +122,7 @@ function ShippingSimulation({ items, shipmentPolitics }: Props) {
           <Button
             type="submit"
             loading={loading.value}
-            class="btn-secondary btn-sm btn-large"
+            class="btn-secondary h-[2.25rem] px-5"
           >
             Calcular
           </Button>
@@ -134,11 +134,9 @@ function ShippingSimulation({ items, shipmentPolitics }: Props) {
       >
         Não sei meu CEP
       </a>
-      <div>
-        <div>
-          <ShippingContent simulation={simulateResult} />
-        </div>
-      </div>
+      {simulateResult.value
+        ? <ShippingContent simulation={simulateResult} />
+        : null}
       {shipmentPolitics && (
         <a href={shipmentPolitics.link} class="uppercase text-emphasis text-xs">
           {shipmentPolitics.label}
