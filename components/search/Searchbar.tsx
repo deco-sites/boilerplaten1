@@ -215,7 +215,7 @@ function Searchbar({
                   </span>
                   {loading.value && <Spinner />}
                 </div>
-                <Slider class="carousel">
+                <Slider class="carousel gap-2">
                   {suggestions.value!.products?.map((product, index) => (
                     <Slider.Item
                       index={index}
