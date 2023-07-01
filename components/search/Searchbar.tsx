@@ -25,7 +25,7 @@ function CloseButton() {
 
   return (
     <Button
-      class="btn-ghost btn-circle"
+      class="btn-ghost btn-circle btn"
       onClick={() => (displaySearchbar.value = false)}
     >
       <Icon id="XMark" width={20} height={20} strokeWidth={2} />
