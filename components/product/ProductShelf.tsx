@@ -1,5 +1,5 @@
 import type { LoaderReturnType } from "$live/types.ts";
-import { ButtonVariant } from "$store/components/minicart/Cart.tsx";
+import type { Layout as CardLayout } from "$store/components/product/ProductCard.tsx";
 import ProductCard from "$store/components/product/ProductCard.tsx";
 import {
   CONDITIONAL_RESPONSIVE_PARAMS,
@@ -32,39 +32,7 @@ export interface Props {
     }[];
   };
   showPaginationArrows?: ResponsiveConditionals;
-  cardLayout?: {
-    basics?: {
-      contentAlignment?: "Left" | "Center";
-      oldPriceSize?: "Small" | "Normal";
-      ctaText?: string;
-      mobileCtaText?: string;
-      ctaVariation?: ButtonVariant;
-      ctaMode?: "Go to Product Page" | "Add to Cart";
-    };
-    discount: {
-      label: string;
-      variant: "primary" | "secondary" | "neutral" | "accent" | "emphasis";
-    };
-    elementsPositions?: {
-      skuSelector?: "Top" | "Bottom";
-      favoriteIcon?: "Top right" | "Top left";
-    };
-    hide: {
-      productName?: boolean;
-      productDescription?: boolean;
-      allPrices?: boolean;
-      installments?: boolean;
-      skuSelector?: boolean;
-      cta?: boolean;
-    };
-    onMouseOver?: {
-      image?: "Change image" | "Zoom image";
-      showFavoriteIcon?: boolean;
-      showSkuSelector?: boolean;
-      showCardShadow?: boolean;
-      showCta?: boolean;
-    };
-  };
+  cardLayout?: CardLayout;
 }
 
 function ProductShelf({
