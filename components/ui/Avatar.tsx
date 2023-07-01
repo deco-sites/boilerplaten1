@@ -31,7 +31,7 @@ const variants = {
     normal:
       `relative border-2 text-base-200 bg-opacity-20 bg-base-300 border-base-200 hover:border-secondary-focus hover:border-[4px] after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-base-200 after:w-full after:block after:-rotate-[-45deg] after:content-[""]`,
     active:
-      `border-4 border-secondary-focus after:absolute after:left-1 after:top-1/2 after:h-[1px] after:bg-base-200 after:w-4/5 after:block after:-rotate-[-45deg] after:content-[""]`,
+      `border-4 border-secondary-focus bg-base-300 bg-opacity-20 after:absolute after:left-1 after:top-1/2 after:h-[1px] after:bg-base-200 after:w-4/5 after:block after:-rotate-[-45deg] after:content-[""]`,
   },
   default: {
     normal:
