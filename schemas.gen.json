@@ -9909,19 +9909,109 @@
           "title": "Title"
         },
         "color": {
-          "type": [
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
+          "type": "string",
           "description": "Color",
+          "default": "secondary",
           "title": "Color"
         },
         "textColor": {
-          "type": [
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
+          "type": "string",
           "description": "Text Color",
+          "default": "secondary",
           "title": "Text Color"
         }
       },
@@ -9959,12 +10049,110 @@
           "title": "Href"
         },
         "backgroundColor": {
-          "type": [
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
+          "type": "string",
           "description": "Background color",
+          "default": "primary",
           "title": "Background Color"
+        },
+        "textColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "description": "Text color",
+          "default": "primary",
+          "title": "Text Color"
         },
         "label": {
           "type": [
@@ -9972,6 +10160,7 @@
             "null"
           ],
           "description": "Label",
+          "default": "\"Title\"",
           "title": "Label"
         },
         "text": {
@@ -9983,13 +10172,6 @@
                 "null"
               ],
               "title": "Reverse"
-            },
-            "color": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Color"
             },
             "verticalAlignment": {
               "anyOf": [
@@ -10074,12 +10256,215 @@
           "description": "Quantidade de colunas que irá ocupar",
           "title": "Col Span"
         },
-        "hoverUrl": {
-          "type": [
-            "string",
-            "null"
+        "buttonBackgroundColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
-          "title": "Hover Url"
+          "type": "string",
+          "description": "button background",
+          "default": "primary",
+          "title": "Button Background Color"
+        },
+        "buttonColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "description": "button text color",
+          "default": "primary",
+          "title": "Button Color"
+        },
+        "hoveredButtonBackgroundColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "description": "button background on Hover",
+          "default": "primary",
+          "title": "Hovered Button Background Color"
+        },
+        "hoveredButtonColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "title": "Hovered Button Color"
         }
       },
       "required": [
@@ -10159,7 +10544,7 @@
           "title": "Items Per Line",
           "description": "Default is 2 for mobile and all for desktop"
         },
-        "itemsColumn": {
+        "itemsPerColumn": {
           "type": "object",
           "properties": {
             "mobile": {
@@ -10216,7 +10601,7 @@
             }
           },
           "required": [],
-          "title": "Items Column",
+          "title": "Items Per Column",
           "description": "Columns per line"
         },
         "borderRadius": {
@@ -10373,6 +10758,58 @@
           "required": [],
           "title": "Column Gap"
         },
+        "hoverBackgroundColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "description": "Hover Backfround Color",
+          "title": "Hover Background Color"
+        },
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner[]",
           "max": "4",
@@ -10381,7 +10818,7 @@
       },
       "required": [
         "itemsPerLine",
-        "itemsColumn",
+        "itemsPerColumn",
         "borderRadius",
         "columnGap",
         "banners"

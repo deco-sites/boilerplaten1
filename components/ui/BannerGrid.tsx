@@ -1,4 +1,5 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 
 export interface BagdeItem {
   /**
@@ -7,12 +8,32 @@ export interface BagdeItem {
   title: string;
   /**
    * @description Color
+   * @default secondary
    */
-  color?: string;
+  color?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
   /**
    * @description Text Color
+   * @default secondary
    */
-  textColor?: string;
+  textColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
 }
 
 export interface Banner {
@@ -26,13 +47,42 @@ export interface Banner {
    * @description When you click you go to
    */
   href: string;
+
   /**
    * @description Background color
+   * @default primary
    */
-  backgroundColor?: string;
+
+  backgroundColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
+
+  /**
+   * @description Text color
+   * @default primary
+   */
+
+  textColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
 
   /**
    * @description Label
+   * @default "Title"
    */
   label?: string;
 
@@ -48,7 +98,7 @@ export interface Banner {
      * @default false
      */
     reverse?: boolean;
-    color?: string;
+
     /**
      * @description Vertical Alignment
      */
@@ -89,7 +139,63 @@ export interface Banner {
 
   colSpan?: number;
 
-  hoverUrl?: string;
+  /**
+   * @description button background
+   * @default primary
+   */
+  buttonBackgroundColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
+
+  /**
+   * @description button text color
+   * @default primary
+   */
+
+  buttonColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
+
+  /**
+   * @description button background on Hover
+   * @default primary
+   */
+
+  hoveredButtonBackgroundColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
+
+  hoveredButtonColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
 }
 
 export type BorderRadius =
@@ -112,13 +218,14 @@ export interface Props {
     /** @default 4 */
     desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
+
   /**
    * @description Columns per line
    */
-  itemsColumn: {
+  itemsPerColumn: {
     /** @default 2 */
     mobile?: 1 | 2;
-    /** @default 4 */
+    /** @default 2*/
     desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
 
@@ -138,6 +245,21 @@ export interface Props {
     /** @default 4 */
     desktop?: 1 | 2 | 3 | 4 | 6;
   };
+
+  /**
+   * @description Hover Backfround Color
+   */
+
+  hoverBackgroundColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "neutral"
+    | "base"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
 
   /** @max 4 */
   banners: Banner[];
@@ -242,6 +364,54 @@ export const RADIUS_DESKTOP = {
   full: "sm:rounded-full",
 };
 
+export const CONTENT_COLORS_BACKGROUND = {
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  accent: "bg-accent",
+  neutral: "bg-neutral",
+  base: "bg-base",
+  info: "bg-info",
+  success: "bg-success",
+  warning: "bg-warning",
+  error: "bg-error",
+};
+
+export const CONTENT_HOVER_COLORS_BACKGROUND = {
+  primary: "hover:bg-primary",
+  secondary: "hover:bg-secondary",
+  accent: "hover:bg-accent",
+  neutral: "hover:bg-neutral",
+  base: "hover:bg-base",
+  info: "hover:bg-info",
+  success: "hover:bg-success",
+  warning: "hover:bg-warning",
+  error: "hover:bg-error",
+};
+
+export const CONTENT_HOVER_COLORS = {
+  primary: "hover:text-primary-content",
+  secondary: "hover:text-secondary-content",
+  accent: "hover:text-accent-content",
+  neutral: "hover:text-neutral-content",
+  base: "hover:text-base-content",
+  info: "hover:text-info-content",
+  success: "hover:text-success-content",
+  warning: "hover:text-warning-content",
+  error: "hover:text-error-content",
+};
+
+export const CONTENT_COLORS = {
+  primary: "text-primary-content",
+  secondary: "text-secondary-content",
+  accent: "text-accent-content",
+  neutral: "text-neutral-content",
+  base: "text-base-content",
+  info: "text-info-content",
+  success: "text-success-content",
+  warning: "text-warning-content",
+  error: "text-error-content",
+};
+
 const VERTICAL_ALIGNMENT: Record<string, string> = {
   Top: "top-0",
   Middle: "top-1/2 -translate-y-1/2",
@@ -255,16 +425,17 @@ export const HORIZONTAL_ALIGNMENT: Record<string, string> = {
 };
 
 export default function BannnerGrid({
-  itemsColumn,
+  itemsPerColumn: itemsColumn,
   itemsPerLine,
   columnGap,
   borderRadius,
+  hoverBackgroundColor,
   banners = [],
 }: Props) {
   return (
     <section class="w-full md:px-0 mx-auto py-24">
       <div
-        class={`flex flex-col items-center auto-cols-auto lg:grid  ${
+        class={`flex flex-col grid-cols-auto lg:grid  ${
           GRID_GAP[columnGap?.desktop ?? 2]
         } ${GRID_COLUMNS[itemsColumn?.desktop ?? 2]} ${
           GRID_ROWS[itemsPerLine?.desktop ?? 1]
@@ -283,13 +454,17 @@ export default function BannnerGrid({
               rowSpan,
               colSpan,
               label,
-              hoverUrl,
+              textColor,
+              buttonColor,
+              hoveredButtonColor,
+              hoveredButtonBackgroundColor,
+              buttonBackgroundColor,
             },
             index,
           ) => (
             <div
               key={index}
-              class={`group overflow-hidden transition duration-300 brightness-100 hover:bg-blue-500 relative block gap-4
+              class={`group relative overflow-hidden items-center transition duration-300 brightness-100 relative block gap-4
               ${GRID_ROW_START[rowStart ?? 0]}
               ${GRID_COL_START[columnStart ?? 0]}
               ${GRID_ROW_SPAN[rowSpan ?? 0]}
@@ -307,27 +482,29 @@ export default function BannnerGrid({
                       }`}
                     >
                       <span
-                        class={`text-[40px] md:text-7xl my-2 md:my-4 font-medium`}
-                        style={{
-                          color: text?.color ? text.color : "#482BE7",
-                        }}
+                        class={`text-[40px]  md:text-7xl my-2 md:my-4 font-medium ${
+                          CONTENT_COLORS[textColor ?? "primary"]
+                        }`}
                       >
                         {label}
                       </span>
-                      <div class="flex justify-between">
+                      <div class="flex mt-2 items-center justify-between">
                         <ul class="flex flex-wrap gap-2 items-center justify-start">
                           {text?.badges?.length
                             ? text.badges.map((item) => (
                               <li
-                                class={`p-2 rounded-lg text-[10px] md:text-xs uppercase`}
-                                style={{
-                                  color: item.textColor
-                                    ? item.textColor
-                                    : "#fff",
-                                  backgroundColor: item.color
-                                    ? item.color
-                                    : "#482BE7",
-                                }}
+                                class={`p-2 rounded-lg   text-[10px] md:text-xs uppercase 
+                                  ${
+                                  CONTENT_COLORS[
+                                    item.textColor ?? "primary"
+                                  ]
+                                }
+                                  ${
+                                  CONTENT_COLORS_BACKGROUND[
+                                    item.color ?? "primary"
+                                  ]
+                                }
+                                `}
                               >
                                 {item.title}
                               </li>
@@ -335,37 +512,36 @@ export default function BannnerGrid({
                             : null}
                         </ul>
                         <a
-                          href={hoverUrl ? hoverUrl : "/"}
-                          class="hidden border-2 text-white hover:text-dark-blue border-white transition duration-300 hover:border-light-green pt-3 pb-3 pl-8 pr-8 rounded-full items-center group-hover:flex hover:bg-light-green"
+                          href={href ? href : "/"}
+                          class={`hidden flex border-2 border-current transition duration-300 hover:border-transparent pt-3 pb-3 pl-8 pr-8 rounded-full items-center group-hover:flex 
+                          
+                          
+                          
+                          ${
+                            CONTENT_COLORS_BACKGROUND[
+                              buttonBackgroundColor ?? "primary"
+                            ]
+                          }
+                          ${
+                            CONTENT_COLORS[
+                              buttonColor ?? "primary"
+                            ]
+                          } 
+
+                          ${
+                            CONTENT_HOVER_COLORS_BACKGROUND[
+                              hoveredButtonBackgroundColor ?? "primary"
+                            ]
+                          }
+                          ${
+                            CONTENT_HOVER_COLORS[
+                              hoveredButtonColor ?? "primary"
+                            ]
+                          }
+                        `}
                         >
                           Conferir
-                          <svg
-                            class="ml-2"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g id="Icon">
-                              <path
-                                id="Vector"
-                                d="M3.75 9H14.25"
-                                stroke="white"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                id="Vector_2"
-                                d="M9 3.75L14.25 9L9 14.25"
-                                stroke="white"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </g>
-                          </svg>
+                          <Icon id="ArrowRight" width="22" height="22" />
                         </a>
                       </div>
                     </div>
@@ -386,9 +562,14 @@ export default function BannnerGrid({
                 />
               </a>
               <div
-                class={`invisible transition duration-700 group-hover:visible w-full z-999 top-0 opacity-0 group-hover:opacity-60 h-full bg-default-blue absolute ${
-                  RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-                } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}`}
+                class={`invisible transition duration-700 group-hover:visible w-full z-999 top-0 opacity-0 group-hover:opacity-60 h-full  absolute
+                 ${
+                  CONTENT_COLORS_BACKGROUND[
+                    hoverBackgroundColor ?? "primary"
+                  ]
+                }
+                 ${RADIUS_MOBILE[borderRadius.mobile ?? "none"]}
+                 ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}`}
               >
               </div>
             </div>
