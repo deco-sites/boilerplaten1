@@ -10,16 +10,14 @@ import { ICartProps } from "$store/components/minicart/Cart.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
-const Searchbar = lazy(() => import("$store/islands/SearchBar.tsx"));
 
 interface Props {
   menu: MenuProps;
-  searchbar?: SearchbarProps;
   minicart?: ICartProps;
 }
 
-function Modals({ menu, searchbar, minicart }: Props) {
-  const { displayCart, displayMenu, displaySearchbar } = useUI();
+function Modals({ menu, minicart }: Props) {
+  const { displayCart, displayMenu } = useUI();
 
   const fallback = (
     <div class="flex justify-center items-center w-full h-full">
@@ -42,29 +40,6 @@ function Modals({ menu, searchbar, minicart }: Props) {
       >
         <Suspense fallback={fallback}>
           <Menu {...menu} />
-        </Suspense>
-      </Modal>
-
-      <Modal
-        title="Buscar"
-        mode="center"
-        style={{
-          height: "80px",
-          overflow: "initial",
-          background: "#fff",
-        }}
-        id="search-modal"
-        loading="lazy"
-        class="h-20 bg-white left-0 max-w-none top-7 backdrop:bg-transparent"
-        showHeader={false}
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 1024px)")?.matches}
-        onClose={() => {
-          displaySearchbar.value = false;
-        }}
-      >
-        <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} variant="mobile" />
         </Suspense>
       </Modal>
 

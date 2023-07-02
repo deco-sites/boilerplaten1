@@ -70,10 +70,10 @@
               "./islands/Debug.tsx",
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
+              "./islands/HeaderSearchbar.tsx",
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
               "./islands/ProductImageZoom.tsx",
-              "./islands/SearchBar.tsx",
               "./islands/SearchControls.tsx",
               "./islands/ShippingSimulation.tsx",
               "./islands/SliderJS.tsx",
@@ -7450,77 +7450,6 @@
       ],
       "title": "deco-sites/boilerplaten1/components/newsletter/Newsletter.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2lzbGFuZHMvU2VhcmNoQmFyLnRzeA==@EditableProps": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Placeholder",
-          "description": "Search bar default placeholder message",
-          "default": "What are you looking for?"
-        },
-        "action": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Page path",
-          "description": "When user clicks on the search button, navigate it to",
-          "default": "/s"
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Term name",
-          "description": "Querystring param used when navigating the user",
-          "default": "q"
-        },
-        "query": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Query"
-        }
-      },
-      "required": [],
-      "title": "EditableProps"
-    },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2lzbGFuZHMvU2VhcmNoQmFyLnRzeA==@4f2a67071966a2f109c06f6dedc088d6&EditableProps": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2lzbGFuZHMvU2VhcmNoQmFyLnRzeA==@EditableProps"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "variant": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "desktop",
-                  "default": "desktop"
-                },
-                {
-                  "type": "string",
-                  "const": "mobile",
-                  "default": "mobile"
-                }
-              ],
-              "type": "string",
-              "title": "Variant"
-            }
-          },
-          "required": []
-        }
-      ],
-      "title": "deco-sites/boilerplaten1/islands/SearchBar.tsx@4f2a67071966a2f109c06f6dedc088d6&EditableProps"
-    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -8416,6 +8345,11 @@
                     "type": "string",
                     "const": "SearchBar",
                     "default": "SearchBar"
+                  },
+                  {
+                    "type": "string",
+                    "const": "ArrowRight",
+                    "default": "ArrowRight"
                   }
                 ],
                 "type": "string",
@@ -8651,13 +8585,18 @@
           "anyOf": [
             {
               "type": "string",
-              "const": "WhatsApp",
-              "default": "WhatsApp"
+              "const": "Twitter",
+              "default": "Twitter"
             },
             {
               "type": "string",
-              "const": "Twitter",
-              "default": "Twitter"
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Pinterest",
+              "default": "Pinterest"
             },
             {
               "type": "string",
@@ -8666,8 +8605,13 @@
             },
             {
               "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
             },
             {
               "type": "string",
@@ -8676,8 +8620,28 @@
             },
             {
               "type": "string",
-              "const": "Tiktok",
-              "default": "Tiktok"
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "YouTubeOutline",
+              "default": "YouTubeOutline"
+            },
+            {
+              "type": "string",
+              "const": "WhatsAppOutline",
+              "default": "WhatsAppOutline"
+            },
+            {
+              "type": "string",
+              "const": "InstagramOutline",
+              "default": "InstagramOutline"
+            },
+            {
+              "type": "string",
+              "const": "FacebookOutline",
+              "default": "FacebookOutline"
             }
           ],
           "type": "string",
@@ -9483,6 +9447,11 @@
               "type": "string",
               "const": "SearchBar",
               "default": "SearchBar"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRight",
+              "default": "ArrowRight"
             }
           ],
           "type": "string",
@@ -9541,7 +9510,69 @@
       "type": "object",
       "properties": {
         "icon": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Twitter",
+              "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Pinterest",
+              "default": "Pinterest"
+            },
+            {
+              "type": "string",
+              "const": "YouTube",
+              "default": "YouTube"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "YouTubeOutline",
+              "default": "YouTubeOutline"
+            },
+            {
+              "type": "string",
+              "const": "WhatsAppOutline",
+              "default": "WhatsAppOutline"
+            },
+            {
+              "type": "string",
+              "const": "InstagramOutline",
+              "default": "InstagramOutline"
+            },
+            {
+              "type": "string",
+              "const": "FacebookOutline",
+              "default": "FacebookOutline"
+            }
+          ],
+          "type": "string",
           "title": "Icon"
         },
         "label": {
@@ -9551,17 +9582,12 @@
         "href": {
           "type": "string",
           "title": "Href"
-        },
-        "openNewView": {
-          "type": "boolean",
-          "title": "Open New View"
         }
       },
       "required": [
         "icon",
         "label",
-        "href",
-        "openNewView"
+        "href"
       ],
       "title": "SocialItem"
     },
@@ -9578,9 +9604,15 @@
         "image": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
         }
       },
-      "required": [],
+      "required": [
+        "alt"
+      ],
       "title": "FooterSectionItem"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvZm9vdGVyL1BheW1lbnRzLnRzeA==@FooterSectionItem[]": {
@@ -9597,6 +9629,10 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
         },
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
         "label": {
           "type": "string",
           "title": "Label"
@@ -9604,6 +9640,7 @@
       },
       "required": [
         "image",
+        "alt",
         "label"
       ],
       "title": "FooterImage"
@@ -9812,6 +9849,362 @@
       ],
       "title": "ICartProps"
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout": {
+      "type": "object",
+      "properties": {
+        "basics": {
+          "type": "object",
+          "properties": {
+            "contentAlignment": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Left",
+                  "default": "Left"
+                },
+                {
+                  "type": "string",
+                  "const": "Center",
+                  "default": "Center"
+                }
+              ],
+              "type": "string",
+              "title": "Content Alignment"
+            },
+            "oldPriceSize": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Small",
+                  "default": "Small"
+                },
+                {
+                  "type": "string",
+                  "const": "Normal",
+                  "default": "Normal"
+                }
+              ],
+              "type": "string",
+              "title": "Old Price Size"
+            },
+            "ctaText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Cta Text"
+            },
+            "mobileCtaText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Mobile Cta Text"
+            },
+            "ctaVariation": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "outline",
+                  "default": "outline"
+                }
+              ],
+              "type": "string",
+              "title": "Cta Variation"
+            },
+            "ctaMode": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Go to Product Page",
+                  "default": "Go to Product Page"
+                },
+                {
+                  "type": "string",
+                  "const": "Add to Cart",
+                  "default": "Add to Cart"
+                }
+              ],
+              "type": "string",
+              "title": "Cta Mode"
+            }
+          },
+          "required": [],
+          "title": "Basics"
+        },
+        "discount": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "variant": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "neutral",
+                  "default": "neutral"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "emphasis",
+                  "default": "emphasis"
+                },
+                {
+                  "type": "string",
+                  "const": "success",
+                  "default": "success"
+                },
+                {
+                  "type": "string",
+                  "const": "info",
+                  "default": "info"
+                },
+                {
+                  "type": "string",
+                  "const": "error",
+                  "default": "error"
+                },
+                {
+                  "type": "string",
+                  "const": "warning",
+                  "default": "warning"
+                }
+              ],
+              "type": "string",
+              "title": "Variant"
+            }
+          },
+          "required": [
+            "label",
+            "variant"
+          ],
+          "title": "Discount"
+        },
+        "elementsPositions": {
+          "type": "object",
+          "properties": {
+            "skuSelector": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Top",
+                  "default": "Top"
+                },
+                {
+                  "type": "string",
+                  "const": "Bottom",
+                  "default": "Bottom"
+                }
+              ],
+              "type": "string",
+              "title": "Sku Selector"
+            },
+            "favoriteIcon": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Top right",
+                  "default": "Top right"
+                },
+                {
+                  "type": "string",
+                  "const": "Top left",
+                  "default": "Top left"
+                }
+              ],
+              "type": "string",
+              "title": "Favorite Icon"
+            }
+          },
+          "required": [],
+          "title": "Elements Positions"
+        },
+        "hide": {
+          "type": "object",
+          "properties": {
+            "productName": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Product Name"
+            },
+            "productDescription": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Product Description"
+            },
+            "allPrices": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "All Prices"
+            },
+            "installments": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Installments"
+            },
+            "skuSelector": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Sku Selector"
+            },
+            "cta": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Cta"
+            }
+          },
+          "required": [],
+          "title": "Hide"
+        },
+        "onMouseOver": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "Change image",
+                  "default": "Change image"
+                },
+                {
+                  "type": "string",
+                  "const": "Zoom image",
+                  "default": "Zoom image"
+                }
+              ],
+              "type": "string",
+              "title": "Image"
+            },
+            "showFavoriteIcon": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Show Favorite Icon"
+            },
+            "showSkuSelector": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Show Sku Selector"
+            },
+            "showCardShadow": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Show Card Shadow"
+            },
+            "showCta": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Show Cta"
+            }
+          },
+          "required": [],
+          "title": "On Mouse Over"
+        }
+      },
+      "required": [
+        "discount",
+        "hide"
+      ],
+      "title": "Layout"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Placeholder",
+          "description": "Search bar default placeholder message",
+          "default": "What are you looking for?"
+        },
+        "action": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Page path",
+          "description": "When user clicks on the search button, navigate it to",
+          "default": "/s"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Term name",
+          "description": "Querystring param used when navigating the user",
+          "default": "q"
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Query"
+        },
+        "cardLayout": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
+          "title": "Card Layout"
+        }
+      },
+      "required": [
+        "cardLayout"
+      ],
+      "title": "EditableProps"
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlckxheW91dC50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -9820,21 +10213,18 @@
           "title": "Items do menu",
           "description": "Items do menu desktop e mobile"
         },
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": "O que esta procurando?",
-          "title": "Titulo da busca"
-        },
         "minicart": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvbWluaWNhcnQvQ2FydC50c3g=@ICartProps",
-          "title": "Configurar minicart"
+          "title": "Minicart settings"
+        },
+        "searchbar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
+          "title": "Search bar settings"
         }
       },
       "required": [
-        "minicart"
+        "minicart",
+        "searchbar"
       ],
       "title": "deco-sites/boilerplaten1/components/header/HeaderLayout.tsx@Props"
     },
@@ -11034,6 +11424,13 @@
           ],
           "description": "Link",
           "title": "Href"
+        },
+        "preload": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Preload"
         }
       },
       "required": [
@@ -11502,6 +11899,11 @@
               "type": "string",
               "const": "SearchBar",
               "default": "SearchBar"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRight",
+              "default": "ArrowRight"
             }
           ],
           "type": "string",
@@ -11965,292 +12367,7 @@
           "title": "Show Pagination Arrows"
         },
         "cardLayout": {
-          "type": "object",
-          "properties": {
-            "basics": {
-              "type": "object",
-              "properties": {
-                "contentAlignment": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Left",
-                      "default": "Left"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Center",
-                      "default": "Center"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Content Alignment"
-                },
-                "oldPriceSize": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Small",
-                      "default": "Small"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Normal",
-                      "default": "Normal"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Old Price Size"
-                },
-                "ctaText": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Cta Text"
-                },
-                "mobileCtaText": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Mobile Cta Text"
-                },
-                "ctaVariation": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "primary",
-                      "default": "primary"
-                    },
-                    {
-                      "type": "string",
-                      "const": "secondary",
-                      "default": "secondary"
-                    },
-                    {
-                      "type": "string",
-                      "const": "accent",
-                      "default": "accent"
-                    },
-                    {
-                      "type": "string",
-                      "const": "outline",
-                      "default": "outline"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Cta Variation"
-                },
-                "ctaMode": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Go to Product Page",
-                      "default": "Go to Product Page"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Add to Cart",
-                      "default": "Add to Cart"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Cta Mode"
-                }
-              },
-              "required": [],
-              "title": "Basics"
-            },
-            "discount": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "title": "Label"
-                },
-                "variant": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "primary",
-                      "default": "primary"
-                    },
-                    {
-                      "type": "string",
-                      "const": "secondary",
-                      "default": "secondary"
-                    },
-                    {
-                      "type": "string",
-                      "const": "neutral",
-                      "default": "neutral"
-                    },
-                    {
-                      "type": "string",
-                      "const": "accent",
-                      "default": "accent"
-                    },
-                    {
-                      "type": "string",
-                      "const": "emphasis",
-                      "default": "emphasis"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Variant"
-                }
-              },
-              "required": [
-                "label",
-                "variant"
-              ],
-              "title": "Discount"
-            },
-            "elementsPositions": {
-              "type": "object",
-              "properties": {
-                "skuSelector": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Top",
-                      "default": "Top"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Bottom",
-                      "default": "Bottom"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Sku Selector"
-                },
-                "favoriteIcon": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Top right",
-                      "default": "Top right"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Top left",
-                      "default": "Top left"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Favorite Icon"
-                }
-              },
-              "required": [],
-              "title": "Elements Positions"
-            },
-            "hide": {
-              "type": "object",
-              "properties": {
-                "productName": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Product Name"
-                },
-                "productDescription": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Product Description"
-                },
-                "allPrices": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "All Prices"
-                },
-                "installments": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Installments"
-                },
-                "skuSelector": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Sku Selector"
-                },
-                "cta": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Cta"
-                }
-              },
-              "required": [],
-              "title": "Hide"
-            },
-            "onMouseOver": {
-              "type": "object",
-              "properties": {
-                "image": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Change image",
-                      "default": "Change image"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Zoom image",
-                      "default": "Zoom image"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Image"
-                },
-                "showFavoriteIcon": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Show Favorite Icon"
-                },
-                "showSkuSelector": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Show Sku Selector"
-                },
-                "showCardShadow": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Show Card Shadow"
-                },
-                "showCta": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Show Cta"
-                }
-              },
-              "required": [],
-              "title": "On Mouse Over"
-            }
-          },
-          "required": [
-            "discount",
-            "hide"
-          ],
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
           "title": "Card Layout"
         }
       },
@@ -14738,6 +14855,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0hlYWRlclNlYXJjaGJhci50c3g=": {
+      "title": "./islands/HeaderSearchbar.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/HeaderSearchbar.tsx"
+          ],
+          "default": "./islands/HeaderSearchbar.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4": {
       "title": "./islands/Newsletter.tsx",
       "type": "object",
@@ -14788,27 +14921,6 @@
             "./islands/ProductImageZoom.tsx"
           ],
           "default": "./islands/ProductImageZoom.tsx"
-        }
-      }
-    },
-    "Li9pc2xhbmRzL1NlYXJjaEJhci50c3g=": {
-      "title": "./islands/SearchBar.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2lzbGFuZHMvU2VhcmNoQmFyLnRzeA==@4f2a67071966a2f109c06f6dedc088d6&EditableProps"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/SearchBar.tsx"
-          ],
-          "default": "./islands/SearchBar.tsx"
         }
       }
     },
@@ -16896,6 +17008,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlck1vZGFscy50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaGJhci50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4"
         },
         {
@@ -16903,9 +17018,6 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
-        },
-        {
-          "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaEJhci50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="

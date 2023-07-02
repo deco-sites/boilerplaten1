@@ -16,32 +16,37 @@ const colors: Record<string, string> = {
   "vermelha": "bg-[#FF0000] ring-[#FF0000]",
 
   // Color variants - only applied when no color as content is passed
-  "active":
-    "bg-base-100 text-neutral-content ring-neutral-focus text-secondary-focus",
-  "disabled": "bg-base-100 text-neutral",
+  "disabled": "bg-base-100 text-base-200",
   "default": "bg-base-100 text-base-300",
 };
 
 interface Props {
-  variant?: "active" | "disabled" | "default";
+  variant?: "disabled" | "default";
   content: string;
+  active?: boolean;
 }
 
 const variants = {
-  active: "border-[4px] border-secondary-focus",
-  disabled:
-    `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-red-800 after:w-full after:block after:-rotate-45 after:content-[""]`,
-  default:
-    "border-2 border-base-200 hover:border-secondary-focus hover:text-secondary-focus hover:border-[4px]",
+  disabled: {
+    normal:
+      `relative border-2 text-base-200 bg-opacity-20 bg-base-300 border-base-200 hover:border-secondary-focus hover:border-[4px] after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-base-200 after:w-full after:block after:-rotate-[-45deg] after:content-[""]`,
+    active:
+      `border-4 border-secondary-focus bg-base-300 bg-opacity-20 after:absolute after:left-1 after:top-1/2 after:h-[1px] after:bg-base-200 after:w-4/5 after:block after:-rotate-[-45deg] after:content-[""]`,
+  },
+  default: {
+    normal:
+      "border-2 border-base-200 hover:border-secondary-focus hover:text-secondary-focus hover:border-[4px]",
+    active: "border-4 border-secondary-focus text-secondary-focus",
+  },
 };
 
-function Avatar({ content, variant = "default" }: Props) {
+function Avatar({ content, active, variant = "default" }: Props) {
   return (
     <div class="avatar placeholder font-bold">
       <div
-        class={`rounded-full w-10 ${colors[content] ?? colors[variant]} ${
-          variants[variant]
-        }`}
+        class={`rounded-full transition w-10 ${
+          colors[content] ?? colors[variant]
+        } ${variants[variant][active ? "active" : "normal"]}`}
       >
         <span class="uppercase">
           {colors[content] ? "" : content.substring(0, 2)}
