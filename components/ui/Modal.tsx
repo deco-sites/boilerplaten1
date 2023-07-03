@@ -55,14 +55,13 @@ const Modal = ({
 
   useEffect(() => {
     if (open === false) {
-      document.getElementsByTagName("body").item(0)?.classList.remove(
-        "no-scroll",
-      );
+      document
+        .getElementsByTagName("body")
+        .item(0)
+        ?.classList.remove("no-scroll");
       ref.current?.open === true && ref.current.close();
     } else if (open === true) {
-      document.getElementsByTagName("body").item(0)?.classList.add(
-        "no-scroll",
-      );
+      document.getElementsByTagName("body").item(0)?.classList.add("no-scroll");
       ref.current?.open === false && ref.current.showModal();
       lazy.value = true;
     }
@@ -76,16 +75,15 @@ const Modal = ({
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>
-        (e.target as HTMLDialogElement).tagName === "SECTION" && onClose?.()}
+        (e.target as HTMLDialogElement).tagName === "SECTION" && onClose?.()
+      }
       onClose={onClose}
     >
       <section
         class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
-          class={`w-full bg-base-100 flex flex-col max-h-full ${
-            containerStyles[mode]
-          }`}
+          class={`w-full bg-base-100 flex flex-col max-h-full overflow-auto ${containerStyles[mode]}`}
         >
           {showHeader && (
             <header class="mx-5 mt-4 mb-[10.5px] flex items-center justify-between border-solid border-b-[1px] border-[#F7F7F7] lg:mx-10">

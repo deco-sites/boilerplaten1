@@ -7,6 +7,7 @@ import type {
   FilterToggleValue,
   ProductListingPage,
 } from "deco-sites/std/commerce/types.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
   filters: ProductListingPage["filters"];
@@ -15,12 +16,15 @@ interface Props {
 const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
-function ValueItem(
-  { url, selected, label, quantity }: FilterToggleValue,
-) {
+function ValueItem({ url, selected, label, quantity }: FilterToggleValue) {
   return (
-    <a href={url} class="flex items-center gap-2">
-      <div aria-checked={selected} class="checkbox" />
+    <a href={`${url}&page=1`} class="flex items-center gap-2">
+      <div
+        aria-checked={selected}
+        class="checkbox aria-checked:bg-none aria-checked:bg-primary rounded-md"
+      >
+        {selected && <Icon id="checkIcon" width={42} height={42} />}
+      </div>
       <span class="text-sm">{label}</span>
       {quantity > 0 && <span class="text-sm text-base-300">({quantity})</span>}
     </a>
@@ -28,9 +32,8 @@ function ValueItem(
 }
 
 function FilterValues({ key, values }: FilterToggle) {
-  const flexDirection = key === "tamanho" || key === "cor"
-    ? "flex-row"
-    : "flex-col";
+  const flexDirection =
+    key === "tamanho" || key === "cor" ? "flex-row" : "flex-col";
 
   return (
     <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
@@ -40,11 +43,7 @@ function FilterValues({ key, values }: FilterToggle) {
         if (key === "cor" || key === "tamanho") {
           return (
             <a href={url}>
-              <Avatar
-                content={value}
-                variant={"default"}
-                active={selected}
-              />
+              <Avatar content={value} variant={"default"} active={selected} />
             </a>
           );
         }
@@ -52,11 +51,13 @@ function FilterValues({ key, values }: FilterToggle) {
         if (key === "price") {
           const range = parseRange(item.value);
 
-          return range && (
-            <ValueItem
-              {...item}
-              label={`${formatPrice(range.from)} - ${formatPrice(range.to)}`}
-            />
+          return (
+            range && (
+              <ValueItem
+                {...item}
+                label={`${formatPrice(range.from)} - ${formatPrice(range.to)}`}
+              />
+            )
           );
         }
 
@@ -67,16 +68,37 @@ function FilterValues({ key, values }: FilterToggle) {
 }
 
 function Filters({ filters }: Props) {
+  const selectedFilters = filters.filter(isToggle).filter((filter) => {
+    const { values } = filter as FilterToggle;
+    return values.some((value) => value.selected);
+  });
+
   return (
-    <ul class="flex flex-col gap-6 p-4">
-      {filters
-        .filter(isToggle)
-        .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <span>{filter.label}</span>
-            <FilterValues {...filter} />
-          </li>
-        ))}
+    <ul class="flex flex-col gap-2 px-0 p-4">
+      <li class="">
+        <span>Filtrar por:</span>
+      </li>
+      {selectedFilters.length > 0 && (
+        <li class="">
+          {selectedFilters.map((filter) => (
+            <div class="mb-2">
+              <FilterValues {...filter} />
+            </div>
+          ))}
+        </li>
+      )}
+      {filters.filter(isToggle).map((filter) => (
+        <li class="flex flex-col gap-4">
+          <details class="collapse collapse-plus" open>
+            <summary class="collapse-title px-0 border-b mb-4 border-primary-content">
+              <span>{filter.label}</span>
+            </summary>
+            <div class="collapse-content px-0">
+              <FilterValues {...filter} />
+            </div>
+          </details>
+        </li>
+      ))}
     </ul>
   );
 }

@@ -7,15 +7,19 @@ import Modal from "$store/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
-type Props =
-  & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
-  & {
-    displayFilter?: boolean;
-  };
+type Props = Pick<
+  ProductListingPage,
+  "filters" | "breadcrumb" | "sortOptions"
+> & {
+  displayFilter?: boolean;
+};
 
-function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
-) {
+function SearchControls({
+  filters,
+  breadcrumb,
+  displayFilter,
+  sortOptions,
+}: Props) {
   const open = useSignal(false);
 
   return (
@@ -24,30 +28,34 @@ function SearchControls(
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
-      <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-        <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"}
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+      <div class="flex flex-row items-center justify-between border-0 sm:gap-4 sm:border-none">
+        {displayFilter && (
+          <Button
+            class={`flex justify-around bg-primary btn items-center border-transparent`}
+            onClick={() => {
+              open.value = true;
+            }}
+          >
+            Filtrar
+            <Icon class="ml-2" id="FilterList" width={16} height={16} />
+          </Button>
+        )}
       </div>
 
       <Modal
         showHeader
+        class="lg:w-[20%] "
         loading="lazy"
         title="Filtrar"
-        mode="sidebar-right"
+        mode="sidebar-left"
         open={open.value}
         onClose={() => {
           open.value = false;
         }}
       >
-        <Filters filters={filters} />
+        <div class="p-8 py-2">
+          <Filters filters={filters} />
+        </div>
       </Modal>
     </div>
   );

@@ -74,12 +74,7 @@ function Result({
               href={pageInfo.nextPage ?? "#"}
               class="btn btn-ghost join-item"
             >
-              <Icon
-                id="ChevronRight"
-                width={20}
-                height={20}
-                strokeWidth={2}
-              />
+              <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
             </a>
           </div>
         </div>
@@ -93,7 +88,7 @@ function Result({
             item_list_id: "",
             items: page.products?.map((product) =>
               mapProductToAnalyticsItem({
-                ...(useOffer(product.offers)),
+                ...useOffer(product.offers),
                 product,
                 breadcrumbList: page.breadcrumb,
               })
