@@ -8,7 +8,7 @@ export type Props = {
 
 export default function SearchPagination({ pageInfo }: Props) {
   return (
-    <div class="flex justify-center my-4 gap-[10px]">
+    <div class="flex justify-center my-5 gap-[10px]">
       {pageInfo.previousPage && (
         <a
           aria-label="previous page link"
