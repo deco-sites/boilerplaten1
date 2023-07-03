@@ -1,5 +1,4 @@
 import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
@@ -10,6 +9,8 @@ import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import Sort from "$store/islands/Sort.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchPagination from "$store/components/search/SearchPagination.tsx";
+import { Section } from "$live/blocks/section.ts";
+import type { ComponentChildren } from "preact";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -21,12 +22,18 @@ export interface Props {
    * @description Number of products per line on grid
    */
   columns: Columns;
+  /**
+   * @description Not found section, displayed when no products are found
+   */
+  notFoundSection: Section;
 }
 
-function NotFound() {
+function NotFound({
+  children: section
+}: { children: ComponentChildren }) {
   return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
+    <div class="w-full py-10">
+      {section}
     </div>
   );
 }
@@ -34,7 +41,7 @@ function NotFound() {
 function Result({
   page,
   variant,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
+}: Omit<Omit<Props, "page">, "notFoundSection"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
   const productsFound = (
@@ -115,9 +122,9 @@ function Result({
   );
 }
 
-function SearchResult({ page, ...props }: Props) {
-  if (!page) {
-    return <NotFound />;
+function SearchResult({ page, notFoundSection: {Component: NotFoundSection, props: notFoundProps }, ...props }: Props) {
+  if (!page || !page.products || page.products.length === 0) {
+    return <NotFoundSection {...notFoundProps} />;
   }
 
   return <Result {...props} page={page} />;
