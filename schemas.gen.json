@@ -9141,7 +9141,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&e805b1185109511d3e358b191ec7a678": {
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors"
@@ -9157,7 +9157,7 @@
           "required": []
         }
       ],
-      "title": "Colors&e805b1185109511d3e358b191ec7a678"
+      "title": "7ce107c88554f1ca364eabc6a824a42e&Colors"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Miscellaneous": {
       "type": "object",
@@ -9260,7 +9260,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&e805b1185109511d3e358b191ec7a678",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -10430,66 +10430,11 @@
         },
         "alt": {
           "type": "string",
-          "description": "Image alt text",
           "title": "Alt"
         },
         "href": {
           "type": "string",
-          "description": "When you click you go to",
           "title": "Href"
-        },
-        "backgroundColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "primary",
-              "default": "primary"
-            },
-            {
-              "type": "string",
-              "const": "secondary",
-              "default": "secondary"
-            },
-            {
-              "type": "string",
-              "const": "accent",
-              "default": "accent"
-            },
-            {
-              "type": "string",
-              "const": "neutral",
-              "default": "neutral"
-            },
-            {
-              "type": "string",
-              "const": "base",
-              "default": "base"
-            },
-            {
-              "type": "string",
-              "const": "info",
-              "default": "info"
-            },
-            {
-              "type": "string",
-              "const": "success",
-              "default": "success"
-            },
-            {
-              "type": "string",
-              "const": "warning",
-              "default": "warning"
-            },
-            {
-              "type": "string",
-              "const": "error",
-              "default": "error"
-            }
-          ],
-          "type": "string",
-          "description": "Background color",
-          "default": "primary",
-          "title": "Background Color"
         },
         "textColor": {
           "anyOf": [
@@ -10540,7 +10485,6 @@
             }
           ],
           "type": "string",
-          "description": "Text color",
           "default": "primary",
           "title": "Text Color"
         },
@@ -10549,8 +10493,6 @@
             "string",
             "null"
           ],
-          "description": "Label",
-          "default": "\"Title\"",
           "title": "Label"
         },
         "text": {
@@ -10608,34 +10550,88 @@
             "badges": {
               "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@BagdeItem[]",
               "title": "Badges"
+            },
+            "textButton": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Text Button"
+            },
+            "buttonColor": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "neutral",
+                  "default": "neutral"
+                },
+                {
+                  "type": "string",
+                  "const": "base",
+                  "default": "base"
+                },
+                {
+                  "type": "string",
+                  "const": "info",
+                  "default": "info"
+                },
+                {
+                  "type": "string",
+                  "const": "success",
+                  "default": "success"
+                },
+                {
+                  "type": "string",
+                  "const": "warning",
+                  "default": "warning"
+                },
+                {
+                  "type": "string",
+                  "const": "error",
+                  "default": "error"
+                }
+              ],
+              "type": "string",
+              "title": "Button Color"
             }
           },
           "required": [],
-          "title": "Text",
-          "description": "Text"
+          "title": "Text"
         },
         "columnStart": {
           "type": [
             "number",
             "null"
           ],
-          "description": "Coluna inicial",
-          "title": "Column Start"
+          "title": "placement column"
         },
         "rowStart": {
           "type": [
             "number",
             "null"
           ],
-          "description": "Linha inicial",
-          "title": "Row Start"
+          "title": "placement row"
         },
         "rowSpan": {
           "type": [
             "number",
             "null"
           ],
-          "description": "Quantidade de linhas que irá ocupar",
           "title": "Row Span"
         },
         "colSpan": {
@@ -10643,218 +10639,7 @@
             "number",
             "null"
           ],
-          "description": "Quantidade de colunas que irá ocupar",
           "title": "Col Span"
-        },
-        "buttonBackgroundColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "primary",
-              "default": "primary"
-            },
-            {
-              "type": "string",
-              "const": "secondary",
-              "default": "secondary"
-            },
-            {
-              "type": "string",
-              "const": "accent",
-              "default": "accent"
-            },
-            {
-              "type": "string",
-              "const": "neutral",
-              "default": "neutral"
-            },
-            {
-              "type": "string",
-              "const": "base",
-              "default": "base"
-            },
-            {
-              "type": "string",
-              "const": "info",
-              "default": "info"
-            },
-            {
-              "type": "string",
-              "const": "success",
-              "default": "success"
-            },
-            {
-              "type": "string",
-              "const": "warning",
-              "default": "warning"
-            },
-            {
-              "type": "string",
-              "const": "error",
-              "default": "error"
-            }
-          ],
-          "type": "string",
-          "description": "button background",
-          "default": "primary",
-          "title": "Button Background Color"
-        },
-        "buttonColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "primary",
-              "default": "primary"
-            },
-            {
-              "type": "string",
-              "const": "secondary",
-              "default": "secondary"
-            },
-            {
-              "type": "string",
-              "const": "accent",
-              "default": "accent"
-            },
-            {
-              "type": "string",
-              "const": "neutral",
-              "default": "neutral"
-            },
-            {
-              "type": "string",
-              "const": "base",
-              "default": "base"
-            },
-            {
-              "type": "string",
-              "const": "info",
-              "default": "info"
-            },
-            {
-              "type": "string",
-              "const": "success",
-              "default": "success"
-            },
-            {
-              "type": "string",
-              "const": "warning",
-              "default": "warning"
-            },
-            {
-              "type": "string",
-              "const": "error",
-              "default": "error"
-            }
-          ],
-          "type": "string",
-          "description": "button text color",
-          "default": "primary",
-          "title": "Button Color"
-        },
-        "hoveredButtonBackgroundColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "primary",
-              "default": "primary"
-            },
-            {
-              "type": "string",
-              "const": "secondary",
-              "default": "secondary"
-            },
-            {
-              "type": "string",
-              "const": "accent",
-              "default": "accent"
-            },
-            {
-              "type": "string",
-              "const": "neutral",
-              "default": "neutral"
-            },
-            {
-              "type": "string",
-              "const": "base",
-              "default": "base"
-            },
-            {
-              "type": "string",
-              "const": "info",
-              "default": "info"
-            },
-            {
-              "type": "string",
-              "const": "success",
-              "default": "success"
-            },
-            {
-              "type": "string",
-              "const": "warning",
-              "default": "warning"
-            },
-            {
-              "type": "string",
-              "const": "error",
-              "default": "error"
-            }
-          ],
-          "type": "string",
-          "description": "button background on Hover",
-          "default": "primary",
-          "title": "Hovered Button Background Color"
-        },
-        "hoveredButtonColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "primary",
-              "default": "primary"
-            },
-            {
-              "type": "string",
-              "const": "secondary",
-              "default": "secondary"
-            },
-            {
-              "type": "string",
-              "const": "accent",
-              "default": "accent"
-            },
-            {
-              "type": "string",
-              "const": "neutral",
-              "default": "neutral"
-            },
-            {
-              "type": "string",
-              "const": "base",
-              "default": "base"
-            },
-            {
-              "type": "string",
-              "const": "info",
-              "default": "info"
-            },
-            {
-              "type": "string",
-              "const": "success",
-              "default": "success"
-            },
-            {
-              "type": "string",
-              "const": "warning",
-              "default": "warning"
-            },
-            {
-              "type": "string",
-              "const": "error",
-              "default": "error"
-            }
-          ],
-          "type": "string",
-          "title": "Hovered Button Color"
         }
       },
       "required": [
@@ -10931,8 +10716,7 @@
             }
           },
           "required": [],
-          "title": "Items Per Line",
-          "description": "Default is 2 for mobile and all for desktop"
+          "title": "Items Per Line"
         },
         "itemsPerColumn": {
           "type": "object",
@@ -10991,8 +10775,7 @@
             }
           },
           "required": [],
-          "title": "Items Per Column",
-          "description": "Columns per line"
+          "title": "Items Per Column"
         },
         "borderRadius": {
           "type": "object",
@@ -11091,8 +10874,7 @@
             }
           },
           "required": [],
-          "title": "Border Radius",
-          "description": "Item's border radius in px"
+          "title": "Border Radius"
         },
         "columnGap": {
           "type": "object",
@@ -11197,12 +10979,11 @@
             }
           ],
           "type": "string",
-          "description": "Hover Backfround Color",
+          "default": "primary",
           "title": "Hover Background Color"
         },
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner[]",
-          "max": "4",
           "title": "Banners"
         }
       },

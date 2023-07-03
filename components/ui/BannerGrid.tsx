@@ -1,6 +1,17 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Icon from "$store/components/ui/Icon.tsx";
 
+export type SemanticColors =
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "neutral"
+  | "base"
+  | "info"
+  | "success"
+  | "warning"
+  | "error";
+
 export interface BagdeItem {
   /**
    * @description Title
@@ -10,192 +21,41 @@ export interface BagdeItem {
    * @description Color
    * @default secondary
    */
-  color?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
+  color?: SemanticColors;
   /**
    * @description Text Color
    * @default secondary
    */
-  textColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
+  textColor?: SemanticColors;
 }
 
 export interface Banner {
   srcMobile: LiveImage;
   srcDesktop?: LiveImage;
-  /**
-   * @description Image alt text
-   */
   alt: string;
-  /**
-   * @description When you click you go to
-   */
   href: string;
-
   /**
-   * @description Background color
    * @default primary
    */
-
-  backgroundColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  /**
-   * @description Text color
-   * @default primary
-   */
-
-  textColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  /**
-   * @description Label
-   * @default "Title"
-   */
+  textColor?: SemanticColors;
   label?: string;
-
-  /**
-   * @description Text
-   */
   text?: {
-    /**
-     * @description Color
-     */
-    /**
-     * @description Reverse?
-     * @default false
-     */
     reverse?: boolean;
-
-    /**
-     * @description Vertical Alignment
-     */
     verticalAlignment?: "Top" | "Middle" | "Bottom";
-
-    /**
-     * @description Vertical Alignment
-     */
     horizontalAlignment?: "Left" | "Center" | "Right";
-
-    /**
-     * @description Badges
-     */
     badges?: BagdeItem[];
+    textButton?: string;
+    /**
+     * @default primary
+     */
+    buttonColor?: SemanticColors;
   };
-
-  /**
-   * @description Coluna inicial
-   */
-
+  /** @title placement column */
   columnStart?: number;
-
-  /**
-   * @description Linha inicial
-   */
-
+  /** @title placement row */
   rowStart?: number;
-
-  /**
-   * @description Quantidade de linhas que irá ocupar
-   */
-
   rowSpan?: number;
-
-  /**
-   * @description Quantidade de colunas que irá ocupar
-   */
-
   colSpan?: number;
-
-  /**
-   * @description button background
-   * @default primary
-   */
-  buttonBackgroundColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  /**
-   * @description button text color
-   * @default primary
-   */
-
-  buttonColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  /**
-   * @description button background on Hover
-   * @default primary
-   */
-
-  hoveredButtonBackgroundColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  hoveredButtonColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
 }
 
 export type BorderRadius =
@@ -209,59 +69,50 @@ export type BorderRadius =
   | "full";
 
 export interface Props {
-  /**
-   * @description Default is 2 for mobile and all for desktop
-   */
   itemsPerLine: {
-    /** @default 2 */
+    /**
+     * @default 2
+     * @title Lines on mobile
+     */
     mobile?: 1 | 2;
-    /** @default 4 */
+    /**
+     * @default 4
+     * @title Lines on desktop
+     */
     desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
-
-  /**
-   * @description Columns per line
-   */
   itemsPerColumn: {
-    /** @default 2 */
+    /**
+     * @default 2
+     * @title Columns on mobile
+     */
     mobile?: 1 | 2;
-    /** @default 2*/
+    /**
+     * @default 2
+     * @title Columns on desktop
+     */
     desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
-
-  /**
-   * @description Item's border radius in px
-   */
   borderRadius: {
     /** @default none */
     mobile?: BorderRadius;
     /** @default none */
     desktop?: BorderRadius;
   };
-
   columnGap: {
-    /** @default 2 */
+    /**
+     * @default 2
+     * @title Column gap on mobile
+     */
     mobile?: 1 | 2;
-    /** @default 4 */
+    /**
+     * @default 4
+     * @title Column gap on desktop
+     */
     desktop?: 1 | 2 | 3 | 4 | 6;
   };
-
-  /**
-   * @description Hover Backfround Color
-   */
-
-  hoverBackgroundColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "neutral"
-    | "base"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-
-  /** @max 4 */
+  /** @default primary */
+  hoverBackgroundColor?: SemanticColors;
   banners: Banner[];
 }
 
@@ -279,7 +130,7 @@ export const DESKTOP_COLUMNS: Record<number, string> = {
   8: "sm:grid-cols-8",
 };
 
-export const GRID_ROWS: Record<number, string> = {
+const GRID_ROWS: Record<number, string> = {
   1: "grid-rows-1",
   2: "grid-rows-2",
   3: "grid-rows-3",
@@ -288,7 +139,7 @@ export const GRID_ROWS: Record<number, string> = {
   6: "grid-rows-6",
 };
 
-export const GRID_COLUMNS: Record<number, string> = {
+const GRID_COLUMNS: Record<number, string> = {
   1: "grid-cols-1",
   2: "grid-cols-2",
   3: "grid-cols-3",
@@ -297,7 +148,7 @@ export const GRID_COLUMNS: Record<number, string> = {
   6: "grid-cols-6",
 };
 
-export const GRID_COL_START: Record<number, string> = {
+const GRID_COL_START: Record<number, string> = {
   1: "col-start-1",
   2: "col-start-2",
   3: "col-start-3",
@@ -306,7 +157,7 @@ export const GRID_COL_START: Record<number, string> = {
   6: "col-start-6",
 };
 
-export const GRID_ROW_START: Record<number, string> = {
+const GRID_ROW_START: Record<number, string> = {
   1: "row-start-1",
   2: "row-start-2",
   3: "row-start-3",
@@ -315,7 +166,7 @@ export const GRID_ROW_START: Record<number, string> = {
   6: "row-start-6",
 };
 
-export const GRID_ROW_SPAN: Record<number, string> = {
+const GRID_ROW_SPAN: Record<number, string> = {
   1: "row-span-1",
   2: "row-span-2",
   3: "row-span-3",
@@ -324,7 +175,7 @@ export const GRID_ROW_SPAN: Record<number, string> = {
   6: "row-span-6",
 };
 
-export const GRID_COL_SPAN: Record<number, string> = {
+const GRID_COL_SPAN: Record<number, string> = {
   1: "col-span-1",
   2: "col-span-2",
   3: "col-span-3",
@@ -333,7 +184,7 @@ export const GRID_COL_SPAN: Record<number, string> = {
   6: "col-span-6",
 };
 
-export const GRID_GAP: Record<number, string> = {
+const GRID_GAP: Record<number, string> = {
   1: "gap-1",
   2: "gap-2",
   3: "gap-3",
@@ -342,7 +193,7 @@ export const GRID_GAP: Record<number, string> = {
   6: "gap-6",
 };
 
-export const RADIUS_MOBILE = {
+const RADIUS_MOBILE = {
   none: "rounded-none",
   sm: "rounded-sm",
   md: "rounded-md",
@@ -353,7 +204,7 @@ export const RADIUS_MOBILE = {
   full: "rounded-full",
 };
 
-export const RADIUS_DESKTOP = {
+const RADIUS_DESKTOP = {
   none: "sm:rounded-none",
   sm: "sm:rounded-sm",
   md: "sm:rounded-md",
@@ -364,7 +215,7 @@ export const RADIUS_DESKTOP = {
   full: "sm:rounded-full",
 };
 
-export const CONTENT_COLORS_BACKGROUND = {
+const CONTENT_COLORS_BACKGROUND = {
   primary: "bg-primary",
   secondary: "bg-secondary",
   accent: "bg-accent",
@@ -376,40 +227,41 @@ export const CONTENT_COLORS_BACKGROUND = {
   error: "bg-error",
 };
 
-export const CONTENT_HOVER_COLORS_BACKGROUND = {
-  primary: "hover:bg-primary",
-  secondary: "hover:bg-secondary",
-  accent: "hover:bg-accent",
-  neutral: "hover:bg-neutral",
-  base: "hover:bg-base",
-  info: "hover:bg-info",
-  success: "hover:bg-success",
-  warning: "hover:bg-warning",
-  error: "hover:bg-error",
+const CONTENT_COLORS = {
+  primary: "text-primary group-hover:text-primary-content",
+  secondary: "text-secondary group-hover:text-secondary-content",
+  accent: "text-accent group-hover:text-accent-content",
+  neutral: "text-neutral group-hover:text-neutral-content",
+  base: "text-base group-hover:text-base-content",
+  info: "text-info group-hover:text-info-content",
+  success: "text-success group-hover:text-success-content",
+  warning: "text-warning group-hover:text-warning-content",
+  error: "text-error group-hover:text-error-content",
 };
 
-export const CONTENT_HOVER_COLORS = {
-  primary: "hover:text-primary-content",
-  secondary: "hover:text-secondary-content",
-  accent: "hover:text-accent-content",
-  neutral: "hover:text-neutral-content",
-  base: "hover:text-base-content",
-  info: "hover:text-info-content",
-  success: "hover:text-success-content",
-  warning: "hover:text-warning-content",
-  error: "hover:text-error-content",
+const BTN_COLORS = {
+  primary: "btn btn-primary border-primary-content",
+  secondary: "btn btn-secondary border-secondary-content",
+  accent: "btn btn-accent border-accent-content",
+  neutral: "btn btn-neutral border-neutral-content",
+  base: "btn btn-base border-base-content",
+  info: "btn btn-info border-info-content",
+  success: "btn btn-success border-success-content",
+  warning: "btn btn-warning border-warning-content",
+  error: "btn btn-error border-error-content",
 };
 
-export const CONTENT_COLORS = {
-  primary: "text-primary-content",
-  secondary: "text-secondary-content",
-  accent: "text-accent-content",
-  neutral: "text-neutral-content",
-  base: "text-base-content",
-  info: "text-info-content",
-  success: "text-success-content",
-  warning: "text-warning-content",
-  error: "text-error-content",
+const BADGE_COLORS = {
+  primary: "bg-primary text-primary-content group-hover:bg-primary-focus",
+  secondary:
+    "bg-secondary text-secondary-content group-hover:bg-secondary-focus",
+  accent: "bg-accent text-accent-content group-hover:bg-accent-focus",
+  neutral: "bg-neutral text-neutral-content group-hover:bg-neutral-focus",
+  base: "bg-base text-base-content group-hover:bg-base-focus",
+  info: "bg-info text-info-content group-hover:bg-info-focus",
+  success: "bg-success text-success-content group-hover:bg-success-focus",
+  warning: "bg-warning text-warning-content group-hover:bg-warning-focus",
+  error: "bg-error text-error-content group-hover:bg-error-focus",
 };
 
 const VERTICAL_ALIGNMENT: Record<string, string> = {
@@ -418,7 +270,7 @@ const VERTICAL_ALIGNMENT: Record<string, string> = {
   Bottom: "bottom-0",
 };
 
-export const HORIZONTAL_ALIGNMENT: Record<string, string> = {
+const HORIZONTAL_ALIGNMENT: Record<string, string> = {
   Left: "items-left",
   Center: "items-center",
   Right: "items-end",
@@ -447,7 +299,6 @@ export default function BannnerGrid({
               href,
               srcMobile,
               alt,
-              backgroundColor,
               text,
               columnStart,
               rowStart,
@@ -455,27 +306,25 @@ export default function BannnerGrid({
               colSpan,
               label,
               textColor,
-              buttonColor,
-              hoveredButtonColor,
-              hoveredButtonBackgroundColor,
-              buttonBackgroundColor,
             },
             index,
           ) => (
             <div
               key={index}
-              class={`group relative overflow-hidden items-center transition duration-300 brightness-100 relative block gap-4
+              class={`group overflow-hidden relative
               ${GRID_ROW_START[rowStart ?? 0]}
               ${GRID_COL_START[columnStart ?? 0]}
               ${GRID_ROW_SPAN[rowSpan ?? 0]}
               ${GRID_COL_SPAN[colSpan ?? 0]}
+              ${RADIUS_MOBILE[borderRadius.mobile ?? "none"]}
+              ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}
            `}
             >
-              <a class="block relative" href={href}>
+              <a class="block relative h-full" href={href}>
                 {text
                   ? (
                     <div
-                      class={`w-full absolute flex z-10 md:p-10 p-5  ${
+                      class={`w-full absolute flex z-20 md:p-10 p-5  ${
                         VERTICAL_ALIGNMENT[text.verticalAlignment ?? "Top"]
                       } ${text.reverse ? "flex-col-reverse" : "flex-col"} ${
                         HORIZONTAL_ALIGNMENT[text.horizontalAlignment ?? "Left"]
@@ -488,90 +337,52 @@ export default function BannnerGrid({
                       >
                         {label}
                       </span>
-                      <div class="flex mt-2 items-center justify-between">
-                        <ul class="flex flex-wrap gap-2 items-center justify-start">
-                          {text?.badges?.length
-                            ? text.badges.map((item) => (
-                              <li
-                                class={`p-2 rounded-lg   text-[10px] md:text-xs uppercase 
-                                  ${
-                                  CONTENT_COLORS[
-                                    item.textColor ?? "primary"
-                                  ]
-                                }
-                                  ${
-                                  CONTENT_COLORS_BACKGROUND[
-                                    item.color ?? "primary"
-                                  ]
-                                }
-                                `}
-                              >
-                                {item.title}
-                              </li>
-                            ))
-                            : null}
-                        </ul>
-                        <a
-                          href={href ? href : "/"}
-                          class={`hidden flex border-2 border-current transition duration-300 hover:border-transparent pt-3 pb-3 pl-8 pr-8 rounded-full items-center group-hover:flex 
-                          
-                          
-                          
-                          ${
-                            CONTENT_COLORS_BACKGROUND[
-                              buttonBackgroundColor ?? "primary"
-                            ]
-                          }
-                          ${
-                            CONTENT_COLORS[
-                              buttonColor ?? "primary"
-                            ]
-                          } 
-
-                          ${
-                            CONTENT_HOVER_COLORS_BACKGROUND[
-                              hoveredButtonBackgroundColor ?? "primary"
-                            ]
-                          }
-                          ${
-                            CONTENT_HOVER_COLORS[
-                              hoveredButtonColor ?? "primary"
-                            ]
-                          }
-                        `}
-                        >
-                          Conferir
-                          <Icon id="ArrowRight" width="22" height="22" />
-                        </a>
-                      </div>
+                      <ul class="flex flex-wrap gap-2 items-center justify-start">
+                        {text?.badges?.length
+                          ? text.badges.map((item) => (
+                            <li
+                              class={`${
+                                BADGE_COLORS[item.textColor ?? "primary"]
+                              } p-2 rounded-lg text-[10px] md:text-xs uppercase`}
+                            >
+                              {item.title}
+                            </li>
+                          ))
+                          : null}
+                      </ul>
                     </div>
                   )
                   : null}
                 <img
-                  class={`w-full h-full  ${
-                    RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-                  } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
+                  class="w-full h-full"
                   src={srcMobile}
                   alt={alt}
-                  style={{
-                    backgroundColor,
-                  }}
                   decoding="async"
                   loading="lazy"
                   preload=""
                 />
-              </a>
-              <div
-                class={`invisible transition duration-700 group-hover:visible w-full z-999 top-0 opacity-0 group-hover:opacity-60 h-full  absolute
+                <div
+                  class={`max-lg:hidden transition-opacity duration-200 ease w-full h-full z-10 absolute top-0 left-0 opacity-0 group-hover:opacity-60 
                  ${
-                  CONTENT_COLORS_BACKGROUND[
-                    hoverBackgroundColor ?? "primary"
-                  ]
-                }
-                 ${RADIUS_MOBILE[borderRadius.mobile ?? "none"]}
-                 ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}`}
-              >
-              </div>
+                    CONTENT_COLORS_BACKGROUND[
+                      hoverBackgroundColor ?? "primary"
+                    ]
+                  }`}
+                >
+                  {text?.textButton
+                    ? (
+                      <button
+                        class={`${
+                          BTN_COLORS[text?.buttonColor ?? "primary"]
+                        } border-[1px] px-8 bottom-10 right-10 absolute`}
+                      >
+                        {text?.textButton}
+                        <Icon id="ArrowRight" width="22" height="22" />
+                      </button>
+                    )
+                    : null}
+                </div>
+              </a>
             </div>
           ),
         )}
