@@ -77,6 +77,7 @@
               "./islands/SearchControls.tsx",
               "./islands/ShippingSimulation.tsx",
               "./islands/SliderJS.tsx",
+              "./islands/Sort.tsx",
               "./islands/WishlistButton.tsx",
               "$live/handlers/devPage.ts",
               "$live/handlers/fresh.ts",
@@ -113,6 +114,7 @@
               "deco-sites/boilerplaten1/sections/Links/Shortcuts.tsx",
               "deco-sites/boilerplaten1/sections/Miscellaneous/CampaignTimer.tsx",
               "deco-sites/boilerplaten1/sections/Miscellaneous/CookieConsent.tsx",
+              "deco-sites/boilerplaten1/sections/Miscellaneous/NotFound.tsx",
               "deco-sites/boilerplaten1/sections/Newsletter/Newsletter.tsx",
               "deco-sites/boilerplaten1/sections/Product/ProductDetails.tsx",
               "deco-sites/boilerplaten1/sections/Product/ProductShelf.tsx",
@@ -7507,6 +7509,19 @@
       ],
       "title": "deco-sites/boilerplaten1/components/ui/ShippingSimulation.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@pickc29ydE9wdGlvbnM=ProductListingPage": {
+      "type": "object",
+      "properties": {
+        "sortOptions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@SortOption[]",
+          "title": "Sort Options"
+        }
+      },
+      "required": [
+        "sortOptions"
+      ],
+      "title": "deco-sites/std/commerce/types.ts@pickc29ydE9wdGlvbnM=ProductListingPage"
+    },
     "ZGVjby1jeC9saXZlL2hhbmRsZXJzL2RldlBhZ2UudHM=@DevConfig": {
       "type": "object",
       "properties": {
@@ -9141,7 +9156,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors": {
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&b66b58e2325215292f6051bf3e8e9b23": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors"
@@ -9157,7 +9172,7 @@
           "required": []
         }
       ],
-      "title": "7ce107c88554f1ca364eabc6a824a42e&Colors"
+      "title": "Colors&b66b58e2325215292f6051bf3e8e9b23"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Miscellaneous": {
       "type": "object",
@@ -9260,7 +9275,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&b66b58e2325215292f6051bf3e8e9b23",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -11944,6 +11959,51 @@
       "required": [],
       "title": "deco-sites/boilerplaten1/components/ui/CookieConsent.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvc2VhcmNoL05vdEZvdW5kLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Title to be displayed in the not found section",
+          "title": "Title"
+        },
+        "termDescription": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Description to be displayed before the search term that caused the not found state",
+          "title": "Search term description"
+        },
+        "hints": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "hints": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "Hints"
+            }
+          },
+          "required": [
+            "title",
+            "hints"
+          ],
+          "title": "Hints",
+          "description": "Hints for helping the user searching in a more effective way"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/boilerplaten1/components/search/NotFound.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -12206,11 +12266,17 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns",
           "description": "Number of products per line on grid",
           "title": "Columns"
+        },
+        "notFoundSection": {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section",
+          "description": "Not found section, displayed when no products are found",
+          "title": "Not Found Section"
         }
       },
       "required": [
         "page",
-        "columns"
+        "columns",
+        "notFoundSection"
       ],
       "title": "deco-sites/boilerplaten1/components/search/SearchResult.tsx@Props"
     },
@@ -14758,6 +14824,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1NvcnQudHN4": {
+      "title": "./islands/Sort.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@pickc29ydE9wdGlvbnM=ProductListingPage"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Sort.tsx"
+          ],
+          "default": "./islands/Sort.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA==": {
       "title": "./islands/WishlistButton.tsx",
       "type": "object",
@@ -15500,6 +15587,27 @@
             "deco-sites/boilerplaten1/sections/Miscellaneous/CookieConsent.tsx"
           ],
           "default": "deco-sites/boilerplaten1/sections/Miscellaneous/CookieConsent.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL01pc2NlbGxhbmVvdXMvTm90Rm91bmQudHN4": {
+      "title": "deco-sites/boilerplaten1/sections/Miscellaneous/NotFound.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvc2VhcmNoL05vdEZvdW5kLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Miscellaneous/NotFound.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Miscellaneous/NotFound.tsx"
         }
       }
     },
@@ -16810,6 +16918,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1NvcnQudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA=="
         }
       ]
@@ -16940,6 +17051,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL01pc2NlbGxhbmVvdXMvQ29va2llQ29uc2VudC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL01pc2NlbGxhbmVvdXMvTm90Rm91bmQudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g="
