@@ -32,8 +32,9 @@ function ValueItem({ url, selected, label, quantity }: FilterToggleValue) {
 }
 
 function FilterValues({ key, values }: FilterToggle) {
-  const flexDirection =
-    key === "tamanho" || key === "cor" ? "flex-row" : "flex-col";
+  const flexDirection = key === "tamanho" || key === "cor"
+    ? "flex-row"
+    : "flex-col";
 
   return (
     <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
