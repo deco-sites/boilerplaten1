@@ -7,14 +7,12 @@ import Modal from "$store/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
-type Props =
-  & Pick<
-    ProductListingPage,
-    "filters" | "breadcrumb" | "sortOptions"
-  >
-  & {
-    displayFilter?: boolean;
-  };
+type Props = Pick<
+  ProductListingPage,
+  "filters" | "breadcrumb" | "sortOptions"
+> & {
+  displayFilter?: boolean;
+};
 
 function SearchControls({
   filters,
@@ -40,6 +38,7 @@ function SearchControls({
           >
             Filtrar
             <Icon class="ml-2" id="FilterList" width={16} height={16} />
+            {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
           </Button>
         )}
       </div>
