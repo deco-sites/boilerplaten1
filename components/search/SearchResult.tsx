@@ -29,7 +29,7 @@ export interface Props {
 }
 
 function NotFound({
-  children: section
+  children: section,
 }: { children: ComponentChildren }) {
   return (
     <div class="w-full py-10">
@@ -41,7 +41,9 @@ function NotFound({
 function Result({
   page,
   variant,
-}: Omit<Omit<Props, "page">, "notFoundSection"> & { page: ProductListingPage }) {
+}: Omit<Omit<Props, "page">, "notFoundSection"> & {
+  page: ProductListingPage;
+}) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
   const productsFound = (
@@ -122,7 +124,13 @@ function Result({
   );
 }
 
-function SearchResult({ page, notFoundSection: {Component: NotFoundSection, props: notFoundProps }, ...props }: Props) {
+function SearchResult(
+  {
+    page,
+    notFoundSection: { Component: NotFoundSection, props: notFoundProps },
+    ...props
+  }: Props,
+) {
   if (!page || !page.products || page.products.length === 0) {
     return <NotFoundSection {...notFoundProps} />;
   }
