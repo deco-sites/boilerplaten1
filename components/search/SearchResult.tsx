@@ -7,6 +7,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -18,6 +19,18 @@ export interface Props {
    * @description Number of products per line on grid
    */
   columns: Columns;
+
+  /**
+   * @description Image Category
+   */
+
+  imageCategory?: LiveImage;
+
+  /**
+   * @description Banner Text
+   */
+
+  bannerText?: string;
 }
 
 function NotFound() {
@@ -29,6 +42,8 @@ function NotFound() {
 }
 
 function Result({
+  imageCategory,
+  bannerText,
   page,
   variant,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
@@ -36,6 +51,18 @@ function Result({
 
   return (
     <>
+      <div class="w-full h-full relative">
+        {imageCategory && (
+          <img
+            class="w-100 w-full h-auto"
+            src={imageCategory}
+            alt="bannerText"
+          />
+        )}
+        <span class="absolute left-0 top-0 flex items-center justify-start px-24 w-full h-full text-7xl font-normal text-secondary-content font-medium leading-tight">
+          {bannerText}
+        </span>
+      </div>
       <div class="container px-4 sm:py-10">
         <SearchControls
           sortOptions={sortOptions}
