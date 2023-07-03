@@ -28,16 +28,6 @@ export interface Props {
   notFoundSection: Section;
 }
 
-function NotFound({
-  children: section,
-}: { children: ComponentChildren }) {
-  return (
-    <div class="w-full py-10">
-      {section}
-    </div>
-  );
-}
-
 function Result({
   page,
   variant,

@@ -11970,13 +11970,35 @@
           "description": "Title to be displayed in the not found section",
           "title": "Title"
         },
-        "termNotFoundDescription": {
+        "termDescription": {
           "type": [
             "string",
             "null"
           ],
-          "description": "Description to be displayed in the not found section",
-          "title": "Term Not Found Description"
+          "description": "Description to be displayed before the search term that caused the not found state",
+          "title": "Search term description"
+        },
+        "hints": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "hints": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "Hints"
+            }
+          },
+          "required": [
+            "title",
+            "hints"
+          ],
+          "title": "Hints",
+          "description": "Hints for helping the user searching in a more effective way"
         }
       },
       "required": [],
