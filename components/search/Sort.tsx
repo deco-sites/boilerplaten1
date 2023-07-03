@@ -19,15 +19,15 @@ const applySort = (searchParam: string) => {
 };
 
 const labels = {
-  'relevance:desc': 'Relevância',
-  'price:asc': 'Menor preço',
-  'price:desc': 'Maior preço',
-  'name:asc': 'A - Z',
-  'name:desc': 'Z - A',
-  'release:desc': 'Data de lançamento',
-  'orders:desc': 'Mais vendidos',
-  'discount:desc': 'Melhor desconto',
-}
+  "relevance:desc": "Relevância",
+  "price:asc": "Menor preço",
+  "price:desc": "Maior preço",
+  "name:asc": "A - Z",
+  "name:desc": "Z - A",
+  "release:desc": "Data de lançamento",
+  "orders:desc": "Mais vendidos",
+  "discount:desc": "Melhor desconto",
+};
 
 type LabelKey = keyof typeof labels;
 
@@ -42,14 +42,27 @@ function Sort({ sortOptions }: Props) {
       name="sort"
       class="dropdown dropdown-end"
     >
-      <label tabIndex={0} class="btn justify-between w-32 lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white">
-        {sort ? <span class="text-base-content">{labels[sort as LabelKey]}</span> : "Selecione"}
-        <Icon id="ChevronDown" height={22} width={22} class="text-base-content" />
+      <label
+        tabIndex={0}
+        class="btn justify-between w-32 lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white"
+      >
+        {sort
+          ? <span class="text-base-content">{labels[sort as LabelKey]}</span>
+          : "Selecione"}
+        <Icon
+          id="ChevronDown"
+          height={22}
+          width={22}
+          class="text-base-content"
+        />
       </label>
-      <ul tabIndex={0} class="dropdown-content mt-[10px] z-[1] px-0 py-[10px] menu shadow bg-base-100 rounded-[10px] w-48">
+      <ul
+        tabIndex={0}
+        class="dropdown-content mt-[10px] z-[1] px-0 py-[10px] menu shadow bg-base-100 rounded-[10px] w-48"
+      >
         {sortOptions.map(({ value, label }) => (
-          <li 
-            class="text-sm h-9 hover:cursor-pointer px-5 hover:bg-neutral-200 flex justify-center" 
+          <li
+            class="text-sm h-9 hover:cursor-pointer px-5 hover:bg-neutral-200 flex justify-center"
             onClick={() => applySort(value)}
           >
             {labels[label as LabelKey]}
