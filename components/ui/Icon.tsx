@@ -11,12 +11,18 @@ export type PaymentIcons =
   | "Boleto";
 
 export type SocialIcons =
-  | "WhatsApp"
   | "Twitter"
+  | "Linkedin"
+  | "Pinterest"
   | "YouTube"
-  | "Facebook"
+  | "Tiktok"
+  | "WhatsApp"
   | "Instagram"
-  | "Tiktok";
+  | "Facebook"
+  | "YouTubeOutline"
+  | "WhatsAppOutline"
+  | "InstagramOutline"
+  | "FacebookOutline";
 export type AvailableIcons =
   | "Refresh"
   | "Menu"
@@ -47,7 +53,8 @@ export type AvailableIcons =
   | "ArrowsPointingOut"
   | "WhatsApp"
   | "ArrowsPointingOut"
-  | "SearchBar";
+  | "SearchBar"
+  | "ArrowRight";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

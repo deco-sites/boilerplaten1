@@ -1,10 +1,9 @@
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Icon, { SocialIcons } from "$store/components/ui/Icon.tsx";
 
 export interface SocialItem {
-  icon: LiveImage;
+  icon: SocialIcons;
   label: string;
   href: string;
-  openNewView: boolean;
 }
 
 export interface ISocialNetworkProps {
@@ -24,16 +23,11 @@ export default function SocialNetWorks(
           >
             <a
               href="#"
-              class="flex items-center justify-center w-full h-full"
-              target={social.openNewView ? "_blank" : ""}
+              class="flex items-center justify-center w-full h-full text-white"
+              target="_blank"
+              aria-label={social.label}
             >
-              <img
-                title={social.label}
-                alt={social.label}
-                id={social.icon}
-                src={social.icon}
-                class="relative"
-              />
+              <Icon id={social.icon} size={20} strokeWidth={1} />
             </a>
           </li>
         ))}

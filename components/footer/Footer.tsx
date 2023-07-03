@@ -52,9 +52,7 @@ export interface SecuritiesItem {
 
 export interface FooterImage {
   image: LiveImage;
-  /**
-   * @title Label
-   */
+  alt: string;
   label: string;
 }
 
@@ -193,10 +191,16 @@ function Footer(
               <ul class="flex items-center flex-wrap gap-8">
                 {poweredby?.map((item) => (
                   <li class="flex items-center gap-2">
-                    <span class="text-neutral" style={{ fontSize: "10px" }}>
+                    <span class="text-neutral text-[10px]">
                       {item.label}
                     </span>
-                    <img src={item.image} />
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      width={89}
+                      height={20}
+                      class="w-auto h-auto"
+                    />
                   </li>
                 ))}
               </ul>

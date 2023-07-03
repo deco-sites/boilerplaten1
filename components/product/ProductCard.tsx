@@ -14,6 +14,49 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import Image from "deco-sites/std/components/Image.tsx";
 import DiscountBadge from "./DiscountBadge.tsx";
 
+export interface Layout {
+  basics?: {
+    contentAlignment?: "Left" | "Center";
+    oldPriceSize?: "Small" | "Normal";
+    ctaText?: string;
+    mobileCtaText?: string;
+    ctaVariation?: ButtonVariant;
+    ctaMode?: "Go to Product Page" | "Add to Cart";
+  };
+  discount: {
+    label: string;
+    variant:
+      | "primary"
+      | "secondary"
+      | "neutral"
+      | "accent"
+      | "emphasis"
+      | "success"
+      | "info"
+      | "error"
+      | "warning";
+  };
+  elementsPositions?: {
+    skuSelector?: "Top" | "Bottom";
+    favoriteIcon?: "Top right" | "Top left";
+  };
+  hide: {
+    productName?: boolean;
+    productDescription?: boolean;
+    allPrices?: boolean;
+    installments?: boolean;
+    skuSelector?: boolean;
+    cta?: boolean;
+  };
+  onMouseOver?: {
+    image?: "Change image" | "Zoom image";
+    showFavoriteIcon?: boolean;
+    showSkuSelector?: boolean;
+    showCardShadow?: boolean;
+    showCta?: boolean;
+  };
+}
+
 interface Props {
   product: Product;
   /** Preload card image */
@@ -21,48 +64,7 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
-  layout?: {
-    basics?: {
-      contentAlignment?: "Left" | "Center";
-      oldPriceSize?: "Small" | "Normal";
-      ctaText?: string;
-      mobileCtaText?: string;
-      ctaVariation?: ButtonVariant;
-      ctaMode?: "Go to Product Page" | "Add to Cart";
-    };
-    discount: {
-      label: string;
-      variant:
-        | "primary"
-        | "secondary"
-        | "neutral"
-        | "accent"
-        | "emphasis"
-        | "success"
-        | "info"
-        | "error"
-        | "warning";
-    };
-    elementsPositions?: {
-      skuSelector?: "Top" | "Bottom";
-      favoriteIcon?: "Top right" | "Top left";
-    };
-    hide: {
-      productName?: boolean;
-      productDescription?: boolean;
-      allPrices?: boolean;
-      installments?: boolean;
-      skuSelector?: boolean;
-      cta?: boolean;
-    };
-    onMouseOver?: {
-      image?: "Change image" | "Zoom image";
-      showFavoriteIcon?: boolean;
-      showSkuSelector?: boolean;
-      showCardShadow?: boolean;
-      showCta?: boolean;
-    };
-  };
+  layout?: Layout;
 }
 
 export const relative = (url: string) => {
@@ -105,12 +107,13 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
       ? "left"
       : "center";
-  const skuSelector = variants.map(([value, [link]]) => (
+  const skuSelector = variants.map(([value, { urls }]) => (
     <li>
-      <a href={link}>
+      <a href={urls[0]}>
         <Avatar
-          variant={link === url ? "active" : "default"}
+          variant={"default"}
           content={value}
+          active={urls[0] === url}
         />
       </a>
     </li>

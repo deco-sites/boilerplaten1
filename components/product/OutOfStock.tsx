@@ -32,7 +32,7 @@ function Notify({ productID }: Props) {
 
   return (
     <form
-      class="flex flex-col py-10 px-12 gap-5 bg-[#f7f7f7] rounded-[10px]"
+      class="flex flex-col py-10 px-12 gap-5 bg-neutral-200 rounded-[10px]"
       onSubmit={handleSubmit}
     >
       <div class="flex flex-col gap-1">
@@ -48,19 +48,19 @@ function Notify({ productID }: Props) {
       <div class="flex flex-col gap-[10px]">
         <input
           placeholder="Digite seu nome"
-          class="input input-bordered border-2 focus:outline-none input-sm"
+          class="input input-bordered border-2 focus:outline-none input-sm !py-4"
           name="name"
         />
         <input
           placeholder="Digite seu email"
-          class="input input-bordered border-2 focus:outline-none input-sm"
+          class="input input-bordered border-2 focus:outline-none input-sm !py-4"
           name="email"
         />
       </div>
 
       <Button
         type="submit"
-        class="btn-secondary font-medium btn-sm btn-large disabled:loading"
+        class="btn-secondary font-medium h-[2.25rem] disabled:loading"
         disabled={loading}
       >
         Avise-me
