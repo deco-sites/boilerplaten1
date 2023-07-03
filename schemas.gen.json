@@ -8350,6 +8350,11 @@
                     "type": "string",
                     "const": "SearchBar",
                     "default": "SearchBar"
+                  },
+                  {
+                    "type": "string",
+                    "const": "ArrowRight",
+                    "default": "ArrowRight"
                   }
                 ],
                 "type": "string",
@@ -9452,6 +9457,11 @@
               "type": "string",
               "const": "SearchBar",
               "default": "SearchBar"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRight",
+              "default": "ArrowRight"
             }
           ],
           "type": "string",
@@ -10299,19 +10309,109 @@
           "title": "Title"
         },
         "color": {
-          "type": [
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
+          "type": "string",
           "description": "Color",
+          "default": "secondary",
           "title": "Color"
         },
         "textColor": {
-          "type": [
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
           ],
+          "type": "string",
           "description": "Text Color",
+          "default": "secondary",
           "title": "Text Color"
         }
       },
@@ -10340,45 +10440,80 @@
         },
         "alt": {
           "type": "string",
-          "description": "Image alt text",
           "title": "Alt"
         },
         "href": {
           "type": "string",
-          "description": "When you click you go to",
           "title": "Href"
         },
-        "backgroundColor": {
+        "textColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "default": "primary",
+          "title": "Text Color"
+        },
+        "label": {
           "type": [
             "string",
             "null"
           ],
-          "description": "Background color",
-          "title": "Background Color"
+          "title": "Label"
         },
         "text": {
           "type": "object",
           "properties": {
-            "title": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Title"
-            },
             "reverse": {
               "type": [
                 "boolean",
                 "null"
               ],
               "title": "Reverse"
-            },
-            "color": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Color"
             },
             "verticalAlignment": {
               "anyOf": [
@@ -10425,11 +10560,96 @@
             "badges": {
               "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@BagdeItem[]",
               "title": "Badges"
+            },
+            "textButton": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Text Button"
+            },
+            "buttonColor": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "neutral",
+                  "default": "neutral"
+                },
+                {
+                  "type": "string",
+                  "const": "base",
+                  "default": "base"
+                },
+                {
+                  "type": "string",
+                  "const": "info",
+                  "default": "info"
+                },
+                {
+                  "type": "string",
+                  "const": "success",
+                  "default": "success"
+                },
+                {
+                  "type": "string",
+                  "const": "warning",
+                  "default": "warning"
+                },
+                {
+                  "type": "string",
+                  "const": "error",
+                  "default": "error"
+                }
+              ],
+              "type": "string",
+              "title": "Button Color"
             }
           },
           "required": [],
-          "title": "Text",
-          "description": "Text"
+          "title": "Text"
+        },
+        "columnStart": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "placement column"
+        },
+        "rowStart": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "placement row"
+        },
+        "rowSpan": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Row Span"
+        },
+        "colSpan": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Col Span"
         }
       },
       "required": [
@@ -10506,8 +10726,66 @@
             }
           },
           "required": [],
-          "title": "Items Per Line",
-          "description": "Default is 2 for mobile and all for desktop"
+          "title": "Items Per Line"
+        },
+        "itemsPerColumn": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1,
+                  "default": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2,
+                  "default": 2
+                }
+              ],
+              "type": "number",
+              "title": "Mobile"
+            },
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1,
+                  "default": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2,
+                  "default": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3,
+                  "default": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4,
+                  "default": 4
+                },
+                {
+                  "type": "number",
+                  "const": 6,
+                  "default": 6
+                },
+                {
+                  "type": "number",
+                  "const": 8,
+                  "default": 8
+                }
+              ],
+              "type": "number",
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Items Per Column"
         },
         "borderRadius": {
           "type": "object",
@@ -10606,18 +10884,124 @@
             }
           },
           "required": [],
-          "title": "Border Radius",
-          "description": "Item's border radius in px"
+          "title": "Border Radius"
+        },
+        "columnGap": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1,
+                  "default": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2,
+                  "default": 2
+                }
+              ],
+              "type": "number",
+              "title": "Mobile"
+            },
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1,
+                  "default": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2,
+                  "default": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3,
+                  "default": 3
+                },
+                {
+                  "type": "number",
+                  "const": 4,
+                  "default": 4
+                },
+                {
+                  "type": "number",
+                  "const": 6,
+                  "default": 6
+                }
+              ],
+              "type": "number",
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Column Gap"
+        },
+        "hoverBackgroundColor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "primary",
+              "default": "primary"
+            },
+            {
+              "type": "string",
+              "const": "secondary",
+              "default": "secondary"
+            },
+            {
+              "type": "string",
+              "const": "accent",
+              "default": "accent"
+            },
+            {
+              "type": "string",
+              "const": "neutral",
+              "default": "neutral"
+            },
+            {
+              "type": "string",
+              "const": "base",
+              "default": "base"
+            },
+            {
+              "type": "string",
+              "const": "info",
+              "default": "info"
+            },
+            {
+              "type": "string",
+              "const": "success",
+              "default": "success"
+            },
+            {
+              "type": "string",
+              "const": "warning",
+              "default": "warning"
+            },
+            {
+              "type": "string",
+              "const": "error",
+              "default": "error"
+            }
+          ],
+          "type": "string",
+          "default": "primary",
+          "title": "Hover Background Color"
         },
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner[]",
-          "max": "4",
           "title": "Banners"
         }
       },
       "required": [
         "itemsPerLine",
+        "itemsPerColumn",
         "borderRadius",
+        "columnGap",
         "banners"
       ],
       "title": "deco-sites/boilerplaten1/components/ui/BannerGrid.tsx@Props"
@@ -11311,6 +11695,11 @@
               "type": "string",
               "const": "SearchBar",
               "default": "SearchBar"
+            },
+            {
+              "type": "string",
+              "const": "ArrowRight",
+              "default": "ArrowRight"
             }
           ],
           "type": "string",
