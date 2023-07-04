@@ -1,5 +1,4 @@
 import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
@@ -7,7 +6,10 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Sort from "$store/islands/Sort.tsx";
+import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import SearchPagination from "$store/components/search/SearchPagination.tsx";
+import { Section } from "$live/blocks/section.ts";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -19,95 +21,73 @@ export interface Props {
    * @description Number of products per line on grid
    */
   columns: Columns;
-
   /**
-   * @description Image Category
+   * @description Not found section, displayed when no products are found
    */
-
-  imageCategory?: LiveImage;
-
-  /**
-   * @description Banner Text
-   */
-
-  bannerText?: string;
-}
-
-function NotFound() {
-  return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
-    </div>
-  );
+  notFoundSection: Section;
 }
 
 function Result({
-  imageCategory,
-  bannerText,
   page,
   variant,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
+}: Omit<Omit<Props, "page">, "notFoundSection"> & {
+  page: ProductListingPage;
+}) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+
+  const productsFound = (
+    <h6 class="text-secondary font-medium">
+      {pageInfo.records} Produtos encontrados
+    </h6>
+  );
 
   return (
     <>
-      <div class="w-full h-full relative">
-        {imageCategory && (
-          <img
-            class="w-100 w-full h-auto"
-            src={imageCategory}
-            alt="bannerText"
+      <div>
+        <div class="flex flex-row items-center absolute top-24 lg:p-0 mb-2">
+          <Breadcrumb
+            class="!px-0"
+            itemListElement={breadcrumb?.itemListElement}
           />
-        )}
-        <span class="absolute left-0 top-0 flex items-center justify-start px-24 w-full h-full text-7xl font-normal text-secondary-content font-medium leading-tight">
-          {bannerText}
-        </span>
-      </div>
-      <div class="container px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={variant === "drawer"}
-        />
+        </div>
 
-        <div class="flex flex-row">
+        {/* Image Banner */}
+
+        <div class="flex flex-row gap-8">
           {variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
+            <aside class="hidden lg:block w-min mt-1 min-w-[270px]">
               <Filters filters={filters} />
             </aside>
           )}
-          <div class="flex-grow">
-            <ProductGallery products={products} />
-          </div>
-        </div>
-
-        <div class="flex justify-center my-4">
-          <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo.previousPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
-            </a>
-            <span class="btn btn-ghost join-item">
-              Page {pageInfo.currentPage + 1}
-            </span>
-            <a
-              aria-label="next page link"
-              rel="next"
-              href={pageInfo.nextPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon
-                id="ChevronRight"
-                width={20}
-                height={20}
-                strokeWidth={2}
+          <div class="flex flex-col gap-5 w-full">
+            <div class="flex justify-between items-center gap-2.5">
+              <div class="hidden lg:block">
+                {productsFound}
+              </div>
+              <SearchControls
+                sortOptions={sortOptions}
+                filters={filters}
+                breadcrumb={breadcrumb}
+                displayFilter={variant === "drawer"}
               />
-            </a>
+              {sortOptions.length > 0
+                ? (
+                  <label class="flex gap-[10px] w-1/2 lg:w-auto items-center">
+                    <span class="text-base-300 hidden whitespace-nowrap lg:inline">
+                      Ordenar por:
+                    </span>
+                    <Sort sortOptions={sortOptions} />
+                  </label>
+                )
+                : null}
+            </div>
+            <div class="lg:hidden">
+              {productsFound}
+            </div>
+            <div class="flex-grow">
+              <ProductGallery products={products} />
+              <SearchPagination pageInfo={pageInfo} />
+            </div>
           </div>
         </div>
       </div>
@@ -120,7 +100,7 @@ function Result({
             item_list_id: "",
             items: page.products?.map((product) =>
               mapProductToAnalyticsItem({
-                ...(useOffer(product.offers)),
+                ...useOffer(product.offers),
                 product,
                 breadcrumbList: page.breadcrumb,
               })
@@ -132,9 +112,15 @@ function Result({
   );
 }
 
-function SearchResult({ page, ...props }: Props) {
-  if (!page) {
-    return <NotFound />;
+function SearchResult(
+  {
+    page,
+    notFoundSection: { Component: NotFoundSection, props: notFoundProps },
+    ...props
+  }: Props,
+) {
+  if (!page || !page.products || page.products.length === 0) {
+    return <NotFoundSection {...notFoundProps} />;
   }
 
   return <Result {...props} page={page} />;
