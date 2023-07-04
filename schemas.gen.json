@@ -8363,6 +8363,11 @@
                   },
                   {
                     "type": "string",
+                    "const": "checkIcon",
+                    "default": "checkIcon"
+                  },
+                  {
+                    "type": "string",
                     "const": "SearchBar",
                     "default": "SearchBar"
                   },
@@ -9462,6 +9467,11 @@
               "type": "string",
               "const": "ArrowsPointingOut",
               "default": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "checkIcon",
+              "default": "checkIcon"
             },
             {
               "type": "string",
@@ -11881,6 +11891,11 @@
               "type": "string",
               "const": "ArrowsPointingOut",
               "default": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "checkIcon",
+              "default": "checkIcon"
             },
             {
               "type": "string",

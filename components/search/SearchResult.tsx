@@ -44,7 +44,7 @@ function Result({
 
   return (
     <>
-      <div class="container px-4 lg:py-10">
+      <div>
         <div class="flex flex-row items-center lg:p-0 mb-2">
           <Breadcrumb
             class="!px-0"
@@ -54,28 +54,27 @@ function Result({
 
         {/* Image Banner */}
 
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={variant === "drawer"}
-        />
-
-        <div class="flex flex-row gap-[30px]">
+        <div class="flex flex-row gap-8">
           {variant === "aside" && filters.length > 0 && (
-            <aside class="hidden lg:block w-min min-w-[250px]">
+            <aside class="hidden lg:block w-min mt-1 min-w-[270px]">
               <Filters filters={filters} />
             </aside>
           )}
-          <div class="flex flex-col gap-5">
-            <div class="flex h-[34px] justify-end lg:justify-between items-center gap-[10px]">
+          <div class="flex flex-col gap-5 w-full">
+            <div class="flex justify-between items-center gap-2.5">
               <div class="hidden lg:block">
                 {productsFound}
               </div>
+              <SearchControls
+                sortOptions={sortOptions}
+                filters={filters}
+                breadcrumb={breadcrumb}
+                displayFilter={variant === "drawer"}
+              />
               {sortOptions.length > 0
                 ? (
-                  <label class="flex gap-[10px] items-center">
-                    <span class="text-base-300 hidden lg:inline">
+                  <label class="flex gap-[10px] w-1/2 lg:w-auto items-center">
+                    <span class="text-base-300 hidden whitespace-nowrap lg:inline">
                       Ordenar por:
                     </span>
                     <Sort sortOptions={sortOptions} />
@@ -102,7 +101,7 @@ function Result({
             item_list_id: "",
             items: page.products?.map((product) =>
               mapProductToAnalyticsItem({
-                ...(useOffer(product.offers)),
+                ...useOffer(product.offers),
                 product,
                 breadcrumbList: page.breadcrumb,
               })
