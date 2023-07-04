@@ -53,6 +53,7 @@ export type AvailableIcons =
   | "ArrowsPointingOut"
   | "WhatsApp"
   | "ArrowsPointingOut"
+  | "checkIcon"
   | "SearchBar"
   | "ArrowRight";
 
@@ -66,9 +67,14 @@ interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   size?: number;
 }
 
-function Icon(
-  { id, strokeWidth = 16, size, width, height, ...otherProps }: Props,
-) {
+function Icon({
+  id,
+  strokeWidth = 16,
+  size,
+  width,
+  height,
+  ...otherProps
+}: Props) {
   return (
     <svg
       {...otherProps}

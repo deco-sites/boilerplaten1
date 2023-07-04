@@ -40,11 +40,11 @@ function Sort({ sortOptions }: Props) {
     <div
       id="sort"
       name="sort"
-      class="dropdown dropdown-end"
+      class="dropdown dropdown-end w-full lg:auto"
     >
       <label
         tabIndex={0}
-        class="btn justify-between w-32 lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white"
+        class="btn justify-between w-full lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white"
       >
         {sort
           ? <span class="text-base-content">{labels[sort as LabelKey]}</span>
@@ -53,6 +53,7 @@ function Sort({ sortOptions }: Props) {
           id="ChevronDown"
           height={22}
           width={22}
+          strokeWidth={2}
           class="text-base-content"
         />
       </label>

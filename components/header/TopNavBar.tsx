@@ -64,7 +64,7 @@ function TopNavBar({ alerts = [], interval = 5 }: Props) {
   return (
     <>
       {/*  mobile version */}
-      <div id={id}>
+      <div id={id} class="overflow-hidden">
         <Slider class="carousel carousel-center gap-6 scrollbar-none lg:hidden">
           {alerts.map((alert, index) => (
             <Slider.Item index={index} class="carousel-item">

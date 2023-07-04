@@ -8,7 +8,10 @@ import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 type Props =
-  & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
+  & Pick<
+    ProductListingPage,
+    "filters" | "breadcrumb" | "sortOptions"
+  >
   & {
     displayFilter?: boolean;
   };
@@ -19,32 +22,40 @@ function SearchControls(
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 lg:mb-0 lg:p-0 lg:gap-4 lg:flex-row lg:h-[53px]">
-      <div class="flex flex-row items-center justify-between lg:gap-4 lg:border-none">
-        <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-      </div>
+    <>
+      <Button
+        class={`btn justify-between w-1/2 lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white ${
+          displayFilter ? "" : "lg:hidden"
+        }`}
+        onClick={() => {
+          open.value = true;
+        }}
+      >
+        Filtrar
+        <Icon
+          id="Plus"
+          size={20}
+          strokeWidth={2}
+          class="text-secondary-focus"
+        />
+      </Button>
 
       <Modal
         showHeader
+        class="lg:w-[20%]"
         loading="lazy"
         title="Filtrar"
-        mode="sidebar-right"
+        mode="sidebar-left"
         open={open.value}
         onClose={() => {
           open.value = false;
         }}
       >
-        <Filters filters={filters} />
+        <div class="p-8 py-2">
+          <Filters filters={filters} />
+        </div>
       </Modal>
-    </div>
+    </>
   );
 }
 

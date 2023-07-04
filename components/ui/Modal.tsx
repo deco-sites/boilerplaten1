@@ -55,14 +55,13 @@ const Modal = ({
 
   useEffect(() => {
     if (open === false) {
-      document.getElementsByTagName("body").item(0)?.classList.remove(
-        "no-scroll",
-      );
+      document
+        .getElementsByTagName("body")
+        .item(0)
+        ?.classList.remove("no-scroll");
       ref.current?.open === true && ref.current.close();
     } else if (open === true) {
-      document.getElementsByTagName("body").item(0)?.classList.add(
-        "no-scroll",
-      );
+      document.getElementsByTagName("body").item(0)?.classList.add("no-scroll");
       ref.current?.open === false && ref.current.showModal();
       lazy.value = true;
     }
@@ -83,7 +82,7 @@ const Modal = ({
         class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
-          class={`w-full bg-base-100 flex flex-col max-h-full ${
+          class={`w-full bg-base-100 flex flex-col max-h-full overflow-auto ${
             containerStyles[mode]
           }`}
         >

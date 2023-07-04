@@ -182,13 +182,13 @@ function Footer(
               ))}
             </div>
 
-            <div class="max-md:mt-7 mt-16 flex items-end w-full justify-between max-lg:flex-col max-lg:items-center max-lg:gap-7">
+            <div class="max-md:mt-5 mt-16 flex items-end w-full justify-between max-lg:flex-col max-lg:gap-7">
               <div class="flex items-center gap-8 max-md:flex-col flex-row max-md:items-start">
                 <FooterSectionList label="Pagamentos" list={payments} />
                 <FooterSectionList label="Segurança" list={securities} />
               </div>
 
-              <ul class="flex items-center flex-wrap gap-8">
+              <ul class="flex items-center max-lg:justify-center flex-wrap gap-8">
                 {poweredby?.map((item) => (
                   <li class="flex items-center gap-2">
                     <span class="text-neutral text-[10px]">
