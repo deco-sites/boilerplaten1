@@ -7,10 +7,10 @@ export interface Props {
   content: Section;
 }
 
-function InstitutionalPage({ 
+function InstitutionalPage({
   asideMenu: { Component: AsideComponent, props: asideProps },
-  content: { Component: ContentComponent, props: contentProps }, 
-  title
+  content: { Component: ContentComponent, props: contentProps },
+  title,
 }: Props) {
   return (
     <>
