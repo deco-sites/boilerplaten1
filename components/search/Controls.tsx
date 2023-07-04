@@ -32,7 +32,12 @@ function SearchControls(
         }}
       >
         Filtrar
-        <Icon id="Plus" size={20} strokeWidth={2} class="text-secondary-focus" />
+        <Icon
+          id="Plus"
+          size={20}
+          strokeWidth={2}
+          class="text-secondary-focus"
+        />
       </Button>
 
       <Modal
