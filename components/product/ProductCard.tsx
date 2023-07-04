@@ -283,7 +283,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
               {l?.hide.productName
                 ? ""
                 : (
-                  <h2 class="truncate text-sm font-bold text-base-content">
+                  <h2 class="truncate text-xs font-bold text-base-content">
                     {isVariantOf?.name || name}
                   </h2>
                 )}
