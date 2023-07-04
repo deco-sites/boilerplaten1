@@ -69,30 +69,34 @@ function FilterValues({ key, values }: FilterToggle) {
 }
 
 function Filters({ filters }: Props) {
-  const selectedFilters = filters.filter(isToggle).filter((filter) => {
-    const { values } = filter as FilterToggle;
-    return values.some((value) => value.selected);
-  });
+  const _filters = filters.filter(isToggle);
+  const selectedFilters = _filters.reduce<FilterToggleValue[]>(
+    (initial, filter) => {
+      const selected = filter.values.find((value) => value.selected);
+      if (!selected) return initial;
+
+      return [...initial, selected];
+    },
+    [],
+  );
 
   return (
-    <ul class="flex flex-col gap-2 px-0 p-4">
-      <li class="">
-        <span>Filtrar por:</span>
-      </li>
-      {selectedFilters.length > 0 && (
-        <li class="">
-          {selectedFilters.map((filter) => (
+    <ul class="flex flex-col gap-2">
+      <li>
+        <p class="font-medium mb-4">Filtrar por:</p>
+        {selectedFilters.length > 0 && (
+          selectedFilters.map((filter) => (
             <div class="mb-2">
-              <FilterValues {...filter} />
+              <ValueItem {...filter} />
             </div>
-          ))}
-        </li>
-      )}
-      {filters.filter(isToggle).map((filter) => (
+          ))
+        )}
+      </li>
+      {_filters.map((filter) => (
         <li class="flex flex-col gap-4">
           <details class="collapse collapse-plus" open>
-            <summary class="collapse-title px-0 border-b mb-4 border-primary-content">
-              <span>{filter.label}</span>
+            <summary class="collapse-title min-h-0 px-0 py-2.5 border-b mb-4 border-primary-content">
+              {filter.label}
             </summary>
             <div class="collapse-content px-0">
               <FilterValues {...filter} />

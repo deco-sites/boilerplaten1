@@ -16,38 +16,28 @@ type Props =
     displayFilter?: boolean;
   };
 
-function SearchControls({
-  filters,
-  breadcrumb,
-  displayFilter,
-  sortOptions,
-}: Props) {
+function SearchControls(
+  { filters, displayFilter }: Props,
+) {
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-base-200">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
-
-      <div class="flex flex-row items-center justify-between border-0 sm:gap-4 sm:border-none">
-        {displayFilter && (
-          <Button
-            class={`flex justify-around bg-primary btn items-center border-transparent`}
-            onClick={() => {
-              open.value = true;
-            }}
-          >
-            Filtrar
-            <Icon class="ml-2" id="FilterList" width={16} height={16} />
-            {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
-          </Button>
-        )}
-      </div>
+    <>
+      <Button
+        class={`btn justify-between w-1/2 lg:w-48 btn-sm font-normal text-base-200 h-[34px] border-2 border-base-200 bg-white hover:bg-white ${
+          displayFilter ? "" : "lg:hidden"
+        }`}
+        onClick={() => {
+          open.value = true;
+        }}
+      >
+        Filtrar
+        <Icon id="Plus" size={20} strokeWidth={2} class="text-secondary-focus" />
+      </Button>
 
       <Modal
         showHeader
-        class="lg:w-[20%] "
+        class="lg:w-[20%]"
         loading="lazy"
         title="Filtrar"
         mode="sidebar-left"
@@ -60,7 +50,7 @@ function SearchControls({
           <Filters filters={filters} />
         </div>
       </Modal>
-    </div>
+    </>
   );
 }
 
