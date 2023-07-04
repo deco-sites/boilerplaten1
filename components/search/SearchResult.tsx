@@ -53,7 +53,7 @@ function Result({
 
         {/* Image Banner */}
 
-        <div class="flex flex-row gap-8">
+        <div class="flex pt-14 flex-row gap-8">
           {variant === "aside" && filters.length > 0 && (
             <aside class="hidden lg:block w-min mt-1 min-w-[270px]">
               <Filters filters={filters} />
