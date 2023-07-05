@@ -63,7 +63,7 @@ function InstitutionalPage({
       <div>
         {/* Banner Institucional | Suporte */}
       </div>
-      <div class="container justify-between mt-[15px]">
+      <div class="flex justify-between mt-[15px]">
         <AsideComponent {...asideProps} />
         <article class="px-[15px] w-full">
           <h3 class="hidden text-secondary text-[28px] font-medium leading-[36.4px] mb-5 border-b border-neutral-100 pb-[10px] lg:block">
