@@ -11,13 +11,18 @@ export interface Props {
 
 export function AccordionItem({ title, content }: Props) {
   return (
-    <details>
-      <summary class="marker::hidden list-none flex justify-between items-center font-bold text-[20px] leading-[35px] mb-[25px] border-b-1 border-[#ccc]">
+    <div tabIndex={0} class="collapse collapse-plus">
+      <input type="checkbox" class="hidden" />
+      <div class="collapse-title px-0 border-b border-base-200 h-11 min-h-0 py-[10.5px] after:!right-1 after:!top-1 after:scale-150">
         {title}
-      </summary>
-      <Markdown
-        text={content.replace(/<p>|<\/p>/g, "\n")}
-      />
-    </details>
+      </div>
+      <div class="collapse-content px-0 !pb-0">
+        <div class="pt-5">
+          <Markdown
+            text={content.replace(/<p>|<\/p>/g, "\n")}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
