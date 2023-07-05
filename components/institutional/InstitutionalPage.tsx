@@ -38,8 +38,8 @@ function InstitutionalPage({
               margin-bottom: 20px;
             }
             .markdown-body p {
-              color: #616161;
-              font-size: 16px;
+              color: #8E8E9F;
+              font-size: 14px;
               font-weight: 400;
               line-height: 20px;
             }
@@ -66,9 +66,9 @@ function InstitutionalPage({
       <div class="flex justify-between mt-[15px]">
         <AsideComponent {...asideProps} />
         <article class="px-[15px] w-full">
-          <h1 class="text-black text-[28px] font-medium leading-[25px] mb-[20px] text-uppercase border-b-1 border-[#ccc] pb-[10px]">
+          <h3 class="hidden text-secondary text-[28px] font-medium leading-[36.4px] mb-5 border-b border-neutral-100 pb-[10px] lg:block">
             {title}
-          </h1>
+          </h3>
           <ContentComponent {...contentProps} />
         </article>
       </div>

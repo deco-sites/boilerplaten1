@@ -13,7 +13,7 @@ export interface Props {
 
 function AccordionsContent({ accordions }: Props) {
   return (
-    <div>
+    <div class="flex flex-col gap-5 pb-12">
       {accordions.map(
         (item, index) => (
           <AccordionItem
