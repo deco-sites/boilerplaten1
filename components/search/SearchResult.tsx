@@ -44,16 +44,7 @@ function Result({
   return (
     <>
       <div>
-        <div class="flex flex-row items-center absolute top-24 lg:p-0 mb-2">
-          <Breadcrumb
-            class="!px-0"
-            itemListElement={breadcrumb?.itemListElement}
-          />
-        </div>
-
-        {/* Image Banner */}
-
-        <div class="flex pt-14 flex-row gap-8">
+        <div class="flex flex-row gap-8">
           {variant === "aside" && filters.length > 0 && (
             <aside class="hidden lg:block w-min mt-1 min-w-[270px]">
               <Filters filters={filters} />

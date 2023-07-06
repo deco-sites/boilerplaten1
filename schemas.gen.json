@@ -94,6 +94,7 @@
               "$live/sections/Slot.tsx",
               "$live/sections/UseSlot.tsx",
               "deco-sites/boilerplaten1/sections/Category/CategoryBanner.tsx",
+              "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx",
               "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx",
               "deco-sites/boilerplaten1/sections/Container.tsx",
               "deco-sites/boilerplaten1/sections/Content/Benefits.tsx",
@@ -7890,21 +7891,68 @@
           "description": "RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category",
           "title": "Matcher"
         },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the image",
-          "title": "Title"
-        },
-        "subtitle": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the image",
-          "title": "Subtitle"
+        "text": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Title"
+            },
+            "subtitle": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Subtitle"
+            },
+            "mobileTextPosition": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "center",
+                  "default": "center"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile Text Position"
+            },
+            "desktopTextPosition": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "center",
+                  "default": "center"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop Text Position"
+            }
+          },
+          "required": [],
+          "title": "Text"
         },
         "image": {
           "type": "object",
@@ -7956,6 +8004,19 @@
       },
       "required": [],
       "title": "deco-sites/boilerplaten1/components/ui/BannerPLP.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQnJlYWRjcnVtYkNhdGVnb3J5LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "title": "deco-sites/boilerplaten1/components/ui/BreadcrumbCategory.tsx@Props"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g=@Category": {
       "type": "object",
@@ -15182,6 +15243,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QnJlYWRjcnVtYi50c3g=": {
+      "title": "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQnJlYWRjcnVtYkNhdGVnb3J5LnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g=": {
       "title": "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx",
       "type": "object",
@@ -17003,6 +17085,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QmFubmVyLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QnJlYWRjcnVtYi50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g="
