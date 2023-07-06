@@ -11611,7 +11611,17 @@
           "title": "Aside Menu"
         },
         "content": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvVGV4dENvbnRlbnQudHN4"
+            },
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQWNjb3JkaW9uc0NvbnRlbnQudHN4"
+            },
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ2FyZHNDb250ZW50LnRzeA=="
+            }
+          ],
           "title": "Content"
         }
       },

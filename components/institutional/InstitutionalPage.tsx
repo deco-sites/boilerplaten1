@@ -1,10 +1,24 @@
 import { Head } from "$fresh/runtime.ts";
 import { Section } from "$live/blocks/section.ts";
+import type { BlockInstance } from "$live/engine/block.ts";
+import type { Manifest } from "deco-sites/boilerplaten1/live.gen.ts";
 
 export interface Props {
   title: string;
   asideMenu: Section;
-  content: Section;
+  content:
+    | BlockInstance<
+      "deco-sites/boilerplaten1/sections/Institutional/TextContent.tsx",
+      Manifest
+    >
+    | BlockInstance<
+      "deco-sites/boilerplaten1/sections/Institutional/AccordionsContent.tsx",
+      Manifest
+    >
+    | BlockInstance<
+      "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx",
+      Manifest
+    >;
 }
 
 function InstitutionalPage({
@@ -19,11 +33,10 @@ function InstitutionalPage({
           dangerouslySetInnerHTML={{
             __html: `
             .markdown-body h2 {
-              font-size: 18px;
+              font-size: 20px;
               font-weight: 700;
               line-height: 1.4;
               margin: 0 0 20px 0;
-              text-transform: uppercase;
             }
             .markdown-body h3 {
               font-size: 18px;
@@ -43,19 +56,6 @@ function InstitutionalPage({
               font-weight: 400;
               line-height: 20px;
             }
-            .markdown-body ul {
-              margin-left: 2rem;
-              padding-left: 2rem;
-            }
-            .markdown-body li {
-              list-style-type: disc;
-            }
-
-            @media screen and (min-width: 992px) {
-              .markdown-body h2 {
-                font-size: 20px;
-              }
-            }
           `,
           }}
         />
@@ -69,6 +69,7 @@ function InstitutionalPage({
           <h3 class="hidden text-secondary text-[28px] font-medium leading-[36.4px] mb-5 border-b border-neutral-100 pb-[10px] lg:block">
             {title}
           </h3>
+          {/* @ts-ignore opting for a ignore here so we can use a union type for the content section prop, and display it nicely in the admin panel */}
           <ContentComponent {...contentProps} />
         </article>
       </div>
