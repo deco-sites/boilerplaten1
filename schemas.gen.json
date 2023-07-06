@@ -11531,6 +11531,279 @@
                     "title": "Title"
                   },
                   "icon": {
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "const": "Refresh",
+                            "default": "Refresh"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Menu",
+                            "default": "Menu"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ChevronLeft",
+                            "default": "ChevronLeft"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ChevronRight",
+                            "default": "ChevronRight"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ChevronUp",
+                            "default": "ChevronUp"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ChevronDown",
+                            "default": "ChevronDown"
+                          },
+                          {
+                            "type": "string",
+                            "const": "QuestionMarkCircle",
+                            "default": "QuestionMarkCircle"
+                          },
+                          {
+                            "type": "string",
+                            "const": "User",
+                            "default": "User"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ShoppingCart",
+                            "default": "ShoppingCart"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Bars3",
+                            "default": "Bars3"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Heart",
+                            "default": "Heart"
+                          },
+                          {
+                            "type": "string",
+                            "const": "MagnifyingGlass",
+                            "default": "MagnifyingGlass"
+                          },
+                          {
+                            "type": "string",
+                            "const": "XMark",
+                            "default": "XMark"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Plus",
+                            "default": "Plus"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Minus",
+                            "default": "Minus"
+                          },
+                          {
+                            "type": "string",
+                            "const": "MapPin",
+                            "default": "MapPin"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Phone",
+                            "default": "Phone"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Logo",
+                            "default": "Logo"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Truck",
+                            "default": "Truck"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Discount",
+                            "default": "Discount"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Return",
+                            "default": "Return"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Deco",
+                            "default": "Deco"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Discord",
+                            "default": "Discord"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Email",
+                            "default": "Email"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Trash",
+                            "default": "Trash"
+                          },
+                          {
+                            "type": "string",
+                            "const": "FilterList",
+                            "default": "FilterList"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ArrowsPointingOut",
+                            "default": "ArrowsPointingOut"
+                          },
+                          {
+                            "type": "string",
+                            "const": "WhatsApp",
+                            "default": "WhatsApp"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ArrowsPointingOut",
+                            "default": "ArrowsPointingOut"
+                          },
+                          {
+                            "type": "string",
+                            "const": "checkIcon",
+                            "default": "checkIcon"
+                          },
+                          {
+                            "type": "string",
+                            "const": "SearchBar",
+                            "default": "SearchBar"
+                          },
+                          {
+                            "type": "string",
+                            "const": "ArrowRight",
+                            "default": "ArrowRight"
+                          }
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "const": "Twitter",
+                            "default": "Twitter"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Linkedin",
+                            "default": "Linkedin"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Pinterest",
+                            "default": "Pinterest"
+                          },
+                          {
+                            "type": "string",
+                            "const": "YouTube",
+                            "default": "YouTube"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Tiktok",
+                            "default": "Tiktok"
+                          },
+                          {
+                            "type": "string",
+                            "const": "WhatsApp",
+                            "default": "WhatsApp"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Instagram",
+                            "default": "Instagram"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Facebook",
+                            "default": "Facebook"
+                          },
+                          {
+                            "type": "string",
+                            "const": "YouTubeOutline",
+                            "default": "YouTubeOutline"
+                          },
+                          {
+                            "type": "string",
+                            "const": "WhatsAppOutline",
+                            "default": "WhatsAppOutline"
+                          },
+                          {
+                            "type": "string",
+                            "const": "InstagramOutline",
+                            "default": "InstagramOutline"
+                          },
+                          {
+                            "type": "string",
+                            "const": "FacebookOutline",
+                            "default": "FacebookOutline"
+                          }
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "const": "Visa",
+                            "default": "Visa"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Elo",
+                            "default": "Elo"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Mastercard",
+                            "default": "Mastercard"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Visa",
+                            "default": "Visa"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Pix",
+                            "default": "Pix"
+                          },
+                          {
+                            "type": "string",
+                            "const": "AmericanExpress",
+                            "default": "AmericanExpress"
+                          },
+                          {
+                            "type": "string",
+                            "const": "Boleto",
+                            "default": "Boleto"
+                          }
+                        ],
+                        "type": "string"
+                      }
+                    ],
+                    "type": "string",
                     "title": "Icon"
                   }
                 },
@@ -11549,12 +11822,15 @@
                     ],
                     "title": "Subtitle"
                   },
-                  "text": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "title": "Text"
+                  "paragraphs": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "title": "Paragraphs"
                   }
                 },
                 "required": [],
@@ -11574,6 +11850,279 @@
                       "title": "Url"
                     },
                     "icon": {
+                      "anyOf": [
+                        {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "const": "Refresh",
+                              "default": "Refresh"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Menu",
+                              "default": "Menu"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ChevronLeft",
+                              "default": "ChevronLeft"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ChevronRight",
+                              "default": "ChevronRight"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ChevronUp",
+                              "default": "ChevronUp"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ChevronDown",
+                              "default": "ChevronDown"
+                            },
+                            {
+                              "type": "string",
+                              "const": "QuestionMarkCircle",
+                              "default": "QuestionMarkCircle"
+                            },
+                            {
+                              "type": "string",
+                              "const": "User",
+                              "default": "User"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ShoppingCart",
+                              "default": "ShoppingCart"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Bars3",
+                              "default": "Bars3"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Heart",
+                              "default": "Heart"
+                            },
+                            {
+                              "type": "string",
+                              "const": "MagnifyingGlass",
+                              "default": "MagnifyingGlass"
+                            },
+                            {
+                              "type": "string",
+                              "const": "XMark",
+                              "default": "XMark"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Plus",
+                              "default": "Plus"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Minus",
+                              "default": "Minus"
+                            },
+                            {
+                              "type": "string",
+                              "const": "MapPin",
+                              "default": "MapPin"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Phone",
+                              "default": "Phone"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Logo",
+                              "default": "Logo"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Truck",
+                              "default": "Truck"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Discount",
+                              "default": "Discount"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Return",
+                              "default": "Return"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Deco",
+                              "default": "Deco"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Discord",
+                              "default": "Discord"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Email",
+                              "default": "Email"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Trash",
+                              "default": "Trash"
+                            },
+                            {
+                              "type": "string",
+                              "const": "FilterList",
+                              "default": "FilterList"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ArrowsPointingOut",
+                              "default": "ArrowsPointingOut"
+                            },
+                            {
+                              "type": "string",
+                              "const": "WhatsApp",
+                              "default": "WhatsApp"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ArrowsPointingOut",
+                              "default": "ArrowsPointingOut"
+                            },
+                            {
+                              "type": "string",
+                              "const": "checkIcon",
+                              "default": "checkIcon"
+                            },
+                            {
+                              "type": "string",
+                              "const": "SearchBar",
+                              "default": "SearchBar"
+                            },
+                            {
+                              "type": "string",
+                              "const": "ArrowRight",
+                              "default": "ArrowRight"
+                            }
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "const": "Twitter",
+                              "default": "Twitter"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Linkedin",
+                              "default": "Linkedin"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Pinterest",
+                              "default": "Pinterest"
+                            },
+                            {
+                              "type": "string",
+                              "const": "YouTube",
+                              "default": "YouTube"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Tiktok",
+                              "default": "Tiktok"
+                            },
+                            {
+                              "type": "string",
+                              "const": "WhatsApp",
+                              "default": "WhatsApp"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Instagram",
+                              "default": "Instagram"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Facebook",
+                              "default": "Facebook"
+                            },
+                            {
+                              "type": "string",
+                              "const": "YouTubeOutline",
+                              "default": "YouTubeOutline"
+                            },
+                            {
+                              "type": "string",
+                              "const": "WhatsAppOutline",
+                              "default": "WhatsAppOutline"
+                            },
+                            {
+                              "type": "string",
+                              "const": "InstagramOutline",
+                              "default": "InstagramOutline"
+                            },
+                            {
+                              "type": "string",
+                              "const": "FacebookOutline",
+                              "default": "FacebookOutline"
+                            }
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "const": "Visa",
+                              "default": "Visa"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Elo",
+                              "default": "Elo"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Mastercard",
+                              "default": "Mastercard"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Visa",
+                              "default": "Visa"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Pix",
+                              "default": "Pix"
+                            },
+                            {
+                              "type": "string",
+                              "const": "AmericanExpress",
+                              "default": "AmericanExpress"
+                            },
+                            {
+                              "type": "string",
+                              "const": "Boleto",
+                              "default": "Boleto"
+                            }
+                          ],
+                          "type": "string"
+                        }
+                      ],
+                      "type": "string",
                       "title": "Icon"
                     }
                   },
