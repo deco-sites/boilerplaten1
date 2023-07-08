@@ -52,7 +52,7 @@ function AsideMenu(
             tabIndex={0}
             class="btn btn-secondary btn-block bg-base-content justify-between border-none"
           >
-            {currentRoute?.label ?? "Quem Somos"}
+            {currentRoute?.label ?? "Menu"}
             <Icon id="ChevronDown" width={26} height={26} />
           </label>
           <ul class="shadow menu dropdown-content z-10 bg-base-100 mt-5 rounded-box w-full gap-2">
