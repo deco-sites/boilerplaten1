@@ -63,10 +63,10 @@ function InstitutionalPage({
       <div>
         {/* Banner Institucional | Suporte */}
       </div>
-      <div class="flex justify-between mt-[15px]">
+      <div class="flex flex-col md:flex-row justify-between mt-[15px]">
         <AsideComponent {...asideProps} />
-        <article class="px-[15px] w-full">
-          <h3 class="hidden text-secondary text-[28px] font-medium leading-[36.4px] mb-5 border-b border-neutral-100 pb-[10px] lg:block">
+        <article class="md:pl-[30px] w-full">
+          <h3 class="hidden text-secondary text-[28px] font-medium leading-[36.4px] mb-5 border-b border-neutral-100 pb-[10px] md:block">
             {title}
           </h3>
           {/* @ts-ignore opting for a ignore here so we can use a union type for the content section prop, and display it nicely in the admin panel */}
