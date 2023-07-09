@@ -53,19 +53,14 @@ export interface Props {
   text: string;
 
   /**
-   * @title Tempo para Reabrir o modal, caso o usuario tenha se cadastrado.
+   * @title Days to reopen modal if it is registered
    */
   modalSignExpiredDate: number;
 
   /**
-   * @title Tempo para Reabrir o modal, caso o usuario tenha clicado em fechar.
+   * @title Days to reopen moda if it is closed
    */
   modalCloseExpiredDate: number;
-
-  /**
-   * @title Define se a modal vai estar ativo ou não.
-   */
-  modalActive: boolean;
 }
 
 interface InputNewletterProps {
@@ -103,7 +98,6 @@ function NewsletterModal(
     text,
     modalSignExpiredDate,
     modalCloseExpiredDate,
-    modalActive,
   }: SectionProps<
     ReturnType<typeof loader>
   >,
@@ -112,15 +106,11 @@ function NewsletterModal(
   const loading = useSignal(false);
   const success = useSignal(false);
 
-  if (!modalActive) {
-    return null;
-  }
-
   useEffect(() => {
     if (isOpen !== true) {
       modalRef.current?.showModal();
     }
-  }, []);
+  }, [isOpen]);
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -160,15 +150,13 @@ function NewsletterModal(
     // deno-lint-ignore no-var
     var date = new Date();
 
-    date.setTime(date.getTime() + (expirationSeconds * 1000));
+    date.setTime(date.getTime() + (expirationSeconds * 24 * 60 * 60 * 1000));
     // deno-lint-ignore no-var
     var expires = "expires=" + date.toUTCString();
 
     document.cookie = "DecoNewsletterModal" + "=" + cookieValue + ";" +
       expires +
       ";path=/";
-
-    console.log("Cookie setado");
   };
 
   const emailInput = !form?.email?.show
@@ -196,46 +184,57 @@ function NewsletterModal(
   return (
     <>
       <dialog id="my_modal_3" ref={modalRef} class="modal">
-        <form method="dialog" class="modal-box">
-          <Icon
-            class="mx-auto mb-5 block"
-            id="Logo"
-            width={120}
-            height={27}
-          />
-          <div
-            dangerouslySetInnerHTML={{ __html: text }}
-            class="text-base lg:text-xl text-center text-base-100 lg:pr-0 "
-          />
+        <form method="dialog" class="modal-box overflow-y-visible">
+          <div class="flex text-secondary-content justify-center items-center absolute right-2 -top-10">
+            <p class="font-normal">Não quero desconto</p>
+            <button
+              onClick={() => setCookieOnCloseModal("closed", 10)}
+              class="btn btn-sm btn-circle btn-ghost focus:outline-none"
+            >
+              ✕
+            </button>
+          </div>
           {success.value
             ? (
-              <div class="text-base lg:text-xl text-left text-base-100">
+              <div class="text-base-content lg:text-xl text-left text-base-100">
                 E-mail cadastrado com sucesso!
               </div>
             )
             : (
-              <form
-                class="w-full form-control"
-                onSubmit={handleSubmit}
-              >
-                <div class="text-center">
-                  {nameInput}
-                  {emailInput}
-                  <button
-                    style={{
-                      minWidth: "150px",
-                    }}
-                    type="submit"
-                    class={`capitalize md:ml-5 font-medium btn disabled:loading rounded-full join-item btn-${
-                      BUTTON_VARIANTS[form?.button?.variant as string] ||
-                      BUTTON_VARIANTS["primary"]
-                    }`}
-                    disabled={loading}
-                  >
-                    {form?.button?.label || "Cadastrar"}
-                  </button>
-                </div>
-              </form>
+              <>
+                <Icon
+                  class="mx-auto mb-5 mt-4 block"
+                  id="Logo"
+                  width={120}
+                  height={27}
+                />
+                <div
+                  dangerouslySetInnerHTML={{ __html: text }}
+                  class="text-base lg:text-xl text-center text-base-100 lg:pr-0 "
+                />
+                <form
+                  class="w-full form-control"
+                  onSubmit={handleSubmit}
+                >
+                  <div class="text-center">
+                    {nameInput}
+                    {emailInput}
+                    <button
+                      style={{
+                        minWidth: "150px",
+                      }}
+                      type="submit"
+                      class={`capitalize md:ml-5 mt-2.5 font-semibold btn rounded-full join-item btn-${
+                        BUTTON_VARIANTS[form?.button?.variant as string] ||
+                        BUTTON_VARIANTS["primary"]
+                      }`}
+                      disabled={loading}
+                    >
+                      {form?.button?.label || "Cadastrar"}
+                    </button>
+                  </div>
+                </form>
+              </>
             )}
         </form>
         <form method="dialog" className="modal-backdrop">

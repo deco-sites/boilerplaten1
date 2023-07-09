@@ -7555,23 +7555,18 @@
         },
         "modalSignExpiredDate": {
           "type": "number",
-          "title": "Tempo para Reabrir o modal, caso o usuario tenha se cadastrado."
+          "title": "Days to reopen modal if it is registered"
         },
         "modalCloseExpiredDate": {
           "type": "number",
-          "title": "Tempo para Reabrir o modal, caso o usuario tenha clicado em fechar."
-        },
-        "modalActive": {
-          "type": "boolean",
-          "title": "Define se a modal vai estar ativo ou não."
+          "title": "Days to reopen moda if it is closed"
         }
       },
       "required": [
         "form",
         "text",
         "modalSignExpiredDate",
-        "modalCloseExpiredDate",
-        "modalActive"
+        "modalCloseExpiredDate"
       ],
       "title": "deco-sites/boilerplaten1/components/ui/NewsletterModal.tsx@Props"
     },
