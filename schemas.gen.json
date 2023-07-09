@@ -113,6 +113,7 @@
               "deco-sites/boilerplaten1/sections/Institutional/AccordionsContent.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/AsideMenu.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx",
+              "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/InstitutionalPage.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/TextContent.tsx",
               "deco-sites/boilerplaten1/sections/Links/LinkTree.tsx",
@@ -9166,7 +9167,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors": {
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&b66b58e2325215292f6051bf3e8e9b23": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors"
@@ -9182,7 +9183,7 @@
           "required": []
         }
       ],
-      "title": "7ce107c88554f1ca364eabc6a824a42e&Colors"
+      "title": "Colors&b66b58e2325215292f6051bf3e8e9b23"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Miscellaneous": {
       "type": "object",
@@ -9285,7 +9286,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&b66b58e2325215292f6051bf3e8e9b23",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -12148,6 +12149,30 @@
       ],
       "title": "deco-sites/boilerplaten1/components/institutional/CardsContent.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9Db250YWN0Rm9ybS50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Banner image that stays on top of the contact form",
+          "title": "Image"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alternative text description for the image",
+          "title": "Alt"
+        },
+        "socialNetworks": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvZm9vdGVyL1NvY2lhbE5ldFdvcmtzLnRzeA==@SocialItem[]",
+          "title": "Social Networks"
+        }
+      },
+      "required": [
+        "image",
+        "alt"
+      ],
+      "title": "deco-sites/boilerplaten1/components/institutional/ContactForm.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9JbnN0aXR1dGlvbmFsUGFnZS50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -12169,6 +12194,9 @@
             },
             {
               "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ2FyZHNDb250ZW50LnRzeA=="
+            },
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4"
             }
           ],
           "title": "Content"
@@ -16329,6 +16357,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4": {
+      "title": "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9Db250YWN0Rm9ybS50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvSW5zdGl0dXRpb25hbFBhZ2UudHN4": {
       "title": "deco-sites/boilerplaten1/sections/Institutional/InstitutionalPage.tsx",
       "type": "object",
@@ -17913,6 +17962,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ2FyZHNDb250ZW50LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvSW5zdGl0dXRpb25hbFBhZ2UudHN4"
