@@ -94,7 +94,9 @@
               "$live/sections/Slot.tsx",
               "$live/sections/UseSlot.tsx",
               "deco-sites/boilerplaten1/sections/Category/CategoryBanner.tsx",
+              "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx",
               "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx",
+              "deco-sites/boilerplaten1/sections/Category/CategoryText.tsx",
               "deco-sites/boilerplaten1/sections/Container.tsx",
               "deco-sites/boilerplaten1/sections/Content/Benefits.tsx",
               "deco-sites/boilerplaten1/sections/Content/CopyRight.tsx",
@@ -113,6 +115,7 @@
               "deco-sites/boilerplaten1/sections/Institutional/AccordionsContent.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/AsideMenu.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx",
+              "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/InstitutionalPage.tsx",
               "deco-sites/boilerplaten1/sections/Institutional/TextContent.tsx",
               "deco-sites/boilerplaten1/sections/Links/LinkTree.tsx",
@@ -7923,21 +7926,68 @@
           "description": "RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category",
           "title": "Matcher"
         },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the image",
-          "title": "Title"
-        },
-        "subtitle": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the image",
-          "title": "Subtitle"
+        "text": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Title"
+            },
+            "subtitle": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Subtitle"
+            },
+            "mobileTextPosition": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "center",
+                  "default": "center"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile Text Position"
+            },
+            "desktopTextPosition": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "center",
+                  "default": "center"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop Text Position"
+            }
+          },
+          "required": [],
+          "title": "Text"
         },
         "image": {
           "type": "object",
@@ -7969,7 +8019,8 @@
         "matcher",
         "image"
       ],
-      "title": "Banner"
+      "title": "Banner",
+      "titleBy": "matcher"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner[]": {
       "type": "array",
@@ -7981,10 +8032,6 @@
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Props": {
       "type": "object",
       "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
-          "title": "Page"
-        },
         "banners": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner[]",
           "title": "Banners"
@@ -7992,6 +8039,19 @@
       },
       "required": [],
       "title": "deco-sites/boilerplaten1/components/ui/BannerPLP.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQnJlYWRjcnVtYkNhdGVnb3J5LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "title": "deco-sites/boilerplaten1/components/ui/BreadcrumbCategory.tsx@Props"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g=@Category": {
       "type": "object",
@@ -8138,6 +8198,77 @@
       },
       "required": [],
       "title": "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Category": {
+      "type": "object",
+      "properties": {
+        "matcher": {
+          "type": "string",
+          "description": "RegExp to enable this text category on the current URL. Use /feminino/* to display this text category on feminino category",
+          "title": "Matcher"
+        },
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        },
+        "html": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Description",
+          "format": "html"
+        },
+        "textAlign": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Left",
+              "default": "Left"
+            },
+            {
+              "type": "string",
+              "const": "Center",
+              "default": "Center"
+            },
+            {
+              "type": "string",
+              "const": "Right",
+              "default": "Right"
+            },
+            {
+              "type": "string",
+              "const": "Justify",
+              "default": "Justify"
+            }
+          ],
+          "type": "string",
+          "title": "Text Align"
+        }
+      },
+      "required": [
+        "matcher",
+        "page"
+      ],
+      "title": "Category"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Category[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Category"
+      },
+      "title": "Category[]"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "categories": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Category[]",
+          "title": "Categories"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/boilerplaten1/components/ui/CategoryText.tsx@Props"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvY29udGFpbmVyL0NvbnRhaW5lci50c3g=@Props": {
       "type": "object",
@@ -12217,6 +12348,61 @@
       ],
       "title": "deco-sites/boilerplaten1/components/institutional/CardsContent.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9Db250YWN0Rm9ybS50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "serviceInfo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "email": {
+              "type": "string",
+              "title": "Email"
+            },
+            "phone": {
+              "type": "string",
+              "title": "Phone"
+            },
+            "schedule": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "Schedule"
+            }
+          },
+          "required": [
+            "title",
+            "email",
+            "phone",
+            "schedule"
+          ],
+          "title": "Service Info"
+        },
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Banner image that stays on top of the contact form",
+          "title": "Image"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alternative text description for the image",
+          "title": "Alt"
+        },
+        "socialNetworks": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvZm9vdGVyL1NvY2lhbE5ldFdvcmtzLnRzeA==@SocialItem[]",
+          "title": "Social Networks"
+        }
+      },
+      "required": [
+        "image",
+        "alt"
+      ],
+      "title": "deco-sites/boilerplaten1/components/institutional/ContactForm.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9JbnN0aXR1dGlvbmFsUGFnZS50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -12238,6 +12424,9 @@
             },
             {
               "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ2FyZHNDb250ZW50LnRzeA=="
+            },
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4"
             }
           ],
           "title": "Content"
@@ -16015,6 +16204,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QnJlYWRjcnVtYi50c3g=": {
+      "title": "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQnJlYWRjcnVtYkNhdGVnb3J5LnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Category/CategoryBreadcrumb.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g=": {
       "title": "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx",
       "type": "object",
@@ -16033,6 +16243,27 @@
             "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx"
           ],
           "default": "deco-sites/boilerplaten1/sections/Category/CategoryList.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5VGV4dC50c3g=": {
+      "title": "deco-sites/boilerplaten1/sections/Category/CategoryText.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvQ2F0ZWdvcnlUZXh0LnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Category/CategoryText.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Category/CategoryText.tsx"
         }
       }
     },
@@ -16411,6 +16642,27 @@
             "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx"
           ],
           "default": "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4": {
+      "title": "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9Db250YWN0Rm9ybS50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx"
         }
       }
     },
@@ -17942,7 +18194,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QmFubmVyLnRzeA=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5QnJlYWRjcnVtYi50c3g="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5TGlzdC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NhdGVnb3J5L0NhdGVnb3J5VGV4dC50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0NvbnRhaW5lci50c3g="
@@ -17997,6 +18255,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ2FyZHNDb250ZW50LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvQ29udGFjdEZvcm0udHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0luc3RpdHV0aW9uYWwvSW5zdGl0dXRpb25hbFBhZ2UudHN4"

@@ -18,6 +18,10 @@ export interface Props {
     | BlockInstance<
       "deco-sites/boilerplaten1/sections/Institutional/CardsContent.tsx",
       Manifest
+    >
+    | BlockInstance<
+      "deco-sites/boilerplaten1/sections/Institutional/ContactForm.tsx",
+      Manifest
     >;
 }
 
