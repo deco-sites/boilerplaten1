@@ -10,7 +10,6 @@ import Sort from "$store/islands/Sort.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchPagination from "$store/components/search/SearchPagination.tsx";
 import { Section } from "$live/blocks/section.ts";
-import type { ComponentChildren } from "preact";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -45,15 +44,6 @@ function Result({
   return (
     <>
       <div>
-        <div class="flex flex-row items-center lg:p-0 mb-2">
-          <Breadcrumb
-            class="!px-0"
-            itemListElement={breadcrumb?.itemListElement}
-          />
-        </div>
-
-        {/* Image Banner */}
-
         <div class="flex flex-row gap-8">
           {variant === "aside" && filters.length > 0 && (
             <aside class="hidden lg:block w-min mt-1 min-w-[270px]">
