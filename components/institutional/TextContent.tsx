@@ -9,7 +9,11 @@ export interface Props {
 }
 
 function TextContent({ content }: Props) {
-  return <Markdown text={content.replace(/<p>|<\/p>/g, "\n")} />;
+  return (
+    <div class="mb-12 lg:mb-20">
+      <Markdown text={content.replace(/<p>|<\/p>/g, "\n")} />
+    </div>
+  );
 }
 
 export default TextContent;

@@ -163,7 +163,7 @@ function Searchbar({
   }
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
+    <div class="flex flex-col p-4 md:py-6 md:px-20 container">
       {Searchbar}
       {hide.results
         ? null
