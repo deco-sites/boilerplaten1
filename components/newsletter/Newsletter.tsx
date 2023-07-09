@@ -39,6 +39,7 @@ export interface INewsletterFormProps {
 }
 
 export interface Props {
+  className?: string;
   /**
    * @title Newsletter Form
    */
@@ -72,7 +73,7 @@ function InputNewsletter(
 }
 
 function Form(props: Props) {
-  const { text, form } = props;
+  const { text, form, className } = props;
   const loading = useSignal(false);
   const success = useSignal(false);
 
@@ -126,7 +127,9 @@ function Form(props: Props) {
     : null;
 
   return (
-    <div class="flex flex-col lg:flex-row items-baseline lg:items-center gap-5 lg:gap-16 py-10 w-full justify-between">
+    <div
+      class={`flex flex-col lg:flex-row items-baseline lg:items-center gap-5 lg:gap-16 py-10 w-full justify-between ${className}`}
+    >
       <div
         dangerouslySetInnerHTML={{ __html: text }}
         class="text-base lg:text-xl text-left text-base-100 lg:max-w-sm max-w-xs lg:pr-0 pr-14"
@@ -142,7 +145,9 @@ function Form(props: Props) {
             class="w-full form-control"
             onSubmit={handleSubmit}
           >
-            <div class="flex gap-4 w-full lg:flex-row flex-col items-center lg:justify-between justify-center">
+            <div
+              class={"flex gap-4 w-full lg:flex-row flex-col items-center lg:justify-between justify-center"}
+            >
               {nameInput}
               {emailInput}
               <button
