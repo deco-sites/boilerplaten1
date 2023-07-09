@@ -7,20 +7,12 @@ export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
 }
 
-function NotFound() {
-  return <div />;
-}
-
 function BreadcrumbCategory({ page }: Props) {
-  if (!page || !page.breadcrumb) {
-    return <NotFound />;
+  if (!page?.breadcrumb) {
+    return <div />;
   }
 
-  return (
-    <div class="container">
-      <Breadcrumb itemListElement={page.breadcrumb.itemListElement} />
-    </div>
-  );
+  return <Breadcrumb itemListElement={page.breadcrumb.itemListElement} />;
 }
 
 export default BreadcrumbCategory;

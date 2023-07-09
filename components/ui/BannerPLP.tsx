@@ -61,16 +61,11 @@ function Banner({ banner }: SectionProps<ReturnType<typeof loader>>) {
       <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
         <Source
           src={image.mobile}
-          width={280}
-          height={80}
+          width={480}
+          height={145}
           media="(max-width: 767px)"
         />
-        <Source
-          src={image.desktop}
-          width={1170}
-          height={145}
-          media="(min-width: 767px)"
-        />
+
         <Image
           class="w-full h-full object-cover rounded-[14px] max-h-[9rem]"
           fetchPriority="high"
@@ -83,7 +78,7 @@ function Banner({ banner }: SectionProps<ReturnType<typeof loader>>) {
       </Picture>
 
       <div
-        class={`absolute md:px-24 px-6 top-0 left-0 w-full h-full flex flex-col justify-center  ${
+        class={`absolute md:px-18 px-12 top-0 left-0 w-full h-full flex flex-col justify-center  ${
           DESKTOP_TEXT_POSITION[desktopTextPosition ?? "center"]
         } ${MOBILE_TEXT_POSITION[mobileTextPosition ?? "left"]}`}
       >
