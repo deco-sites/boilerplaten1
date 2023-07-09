@@ -7445,13 +7445,6 @@
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvbmV3c2xldHRlci9OZXdzbGV0dGVyLnRzeA==@Props": {
       "type": "object",
       "properties": {
-        "className": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Class Name"
-        },
         "form": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvbmV3c2xldHRlci9OZXdzbGV0dGVyLnRzeA==@INewsletterFormProps",
           "title": "Newsletter Form"
@@ -7468,28 +7461,76 @@
       ],
       "title": "deco-sites/boilerplaten1/components/newsletter/Newsletter.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Form": {
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps": {
+      "type": "object",
+      "properties": {
+        "show": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide input?"
+        },
+        "placeholder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "placeholder"
+        }
+      },
+      "required": [],
+      "title": "INewsletterInputProps"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterFormProps": {
       "type": "object",
       "properties": {
         "email": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvbmV3c2xldHRlci9OZXdzbGV0dGVyLnRzeA==@INewsletterInputProps",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps",
           "title": "Email"
         },
         "name": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvbmV3c2xldHRlci9OZXdzbGV0dGVyLnRzeA==@INewsletterInputProps",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps",
           "title": "Name"
         },
         "button": {
           "type": "object",
           "properties": {
-            "label": {
+            "variant": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "outline",
+                  "default": "outline"
+                }
+              ],
               "type": "string",
+              "title": "Variant"
+            },
+            "label": {
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Label"
             }
           },
-          "required": [
-            "label"
-          ],
+          "required": [],
           "title": "Button"
         }
       },
@@ -7498,26 +7539,39 @@
         "name",
         "button"
       ],
-      "title": "Form"
+      "title": "INewsletterFormProps"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Props": {
       "type": "object",
       "properties": {
-        "newsform": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Form",
-          "title": "Newsform"
+        "form": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterFormProps",
+          "title": "Newsletter Form"
         },
-        "html": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Description",
+        "text": {
+          "type": "string",
+          "title": "newsletter message text?",
           "format": "html"
+        },
+        "modalSignExpiredDate": {
+          "type": "number",
+          "title": "Tempo para Reabrir o modal, caso o usuario tenha se cadastrado."
+        },
+        "modalCloseExpiredDate": {
+          "type": "number",
+          "title": "Tempo para Reabrir o modal, caso o usuario tenha clicado em fechar."
+        },
+        "modalActive": {
+          "type": "boolean",
+          "title": "Define se a modal vai estar ativo ou não."
         }
       },
       "required": [
-        "newsform"
+        "form",
+        "text",
+        "modalSignExpiredDate",
+        "modalCloseExpiredDate",
+        "modalActive"
       ],
       "title": "deco-sites/boilerplaten1/components/ui/NewsletterModal.tsx@Props"
     },
