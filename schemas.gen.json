@@ -12152,6 +12152,37 @@
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvaW5zdGl0dXRpb25hbC9Db250YWN0Rm9ybS50c3g=@Props": {
       "type": "object",
       "properties": {
+        "serviceInfo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "email": {
+              "type": "string",
+              "title": "Email"
+            },
+            "phone": {
+              "type": "string",
+              "title": "Phone"
+            },
+            "schedule": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "Schedule"
+            }
+          },
+          "required": [
+            "title",
+            "email",
+            "phone",
+            "schedule"
+          ],
+          "title": "Service Info"
+        },
         "image": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "description": "Banner image that stays on top of the contact form",

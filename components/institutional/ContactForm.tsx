@@ -5,6 +5,21 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Button from "$store/components/ui/Button.tsx";
 
 export interface Props {
+  serviceInfo?: {
+    title: string;
+    /**
+     * @description Email for company contact
+     */
+    email: string;
+    /**
+     * @description Phone number for company contact
+     */
+    phone: string;
+    /**
+     * @description Schedule for company contact
+     */
+    schedule: string[];
+  };
   /**
    * @description Banner image that stays on top of the contact form
    */
@@ -44,9 +59,20 @@ const defaultSocialNetworks: SocialItem[] = [
   },
 ];
 
+const defaultServiceInfo = {
+  title: "Atendimento",
+  email: "contato@agencian1.com.br",
+  phone: "11 99999-9999",
+  schedule: [
+    "Seg. à Sex. das 09:00h às 18:00h",
+    "Sábado das 10:00h às 14:00h",
+  ],
+};
+
 function ContactForm({
   image,
   alt,
+  serviceInfo = defaultServiceInfo,
   socialNetworks = defaultSocialNetworks,
 }: Props) {
   return (
@@ -56,19 +82,18 @@ function ContactForm({
           <div class="lg:py-10 lg:px-[30px] lg:w-full">
             {/* Contact info */}
             <div class="flex flex-col gap-5 py-5 border-b border-neutral-100">
-              <h6 class="font-medium">Atendimento</h6>
+              <h6 class="font-medium">{serviceInfo.title}</h6>
               <div class="flex flex-col gap-[10px] text-sm font-bold text-emphasis">
                 <div class="flex">
                   <Icon id="Phone" class="w-5 h-5 mr-[10px]" />
-                  <span>11 99999-9999</span>
+                  <span>{serviceInfo.phone}</span>
                 </div>
                 <div class="flex">
                   <Icon id="Email" class="w-5 h-5 mr-[10px]" />
-                  <span>contato@agencian1.com.br</span>
+                  <span>{serviceInfo.email}</span>
                 </div>
                 <div class="text-base-300 font-normal">
-                  <p>Seg. à Sex. das 09:00h às 18:00h</p>
-                  <p>Sábado das 10:00h às 14:00h</p>
+                  {serviceInfo.schedule.map((schedule) => <p>{schedule}</p>)}
                 </div>
               </div>
             </div>
@@ -193,12 +218,12 @@ function ContactForm({
               </div>
             </div>
             <div class="form-control gap-[10px]">
-              <label class="font-medium text-base-300" htmlFor="">
-                Nome completo
+              <label class="font-medium text-base-300" htmlFor="description">
+                Descrição
               </label>
               <textarea
                 placeholder="Digite aqui"
-                name=""
+                name="description"
                 type="text"
                 class="textarea h-28 textarea-bordered resize-none rounded-box w-full border-2 border-base-200"
               />
