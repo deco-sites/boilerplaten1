@@ -4,7 +4,7 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/components/ui/SliderJS.tsx";
+import SliderJS from "$store/islands/SliderJS.tsx";
 import OutOfStock from "$store/islands/OutOfStock.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -310,7 +310,7 @@ function Details({
           <div class="flex flex-col xl:flex-row-reverse relative lg:items-start gap-4">
             {/* Image Slider */}
             <div class="relative xl:pl-32">
-              <Slider class="carousel carousel-center gap-6 box-border lg:box-content lg:w-[500px] xl:w-[600px] px-4 lg:px-0">
+              <Slider class="carousel carousel-center gap-6 box-border lg:box-content lg:w-[500px] xl:w-[600px] w-full px-4 lg:px-0">
                 {images.map((img, index) => (
                   <Slider.Item
                     index={index}
@@ -347,7 +347,7 @@ function Details({
             {/* Dots */}
             <div class="lg:max-w-[500px] lg:self-start xl:self-start xl:left-0 xl:absolute xl:max-h-full xl:overflow-y-scroll xl:scrollbar-none">
               <ul
-                class={`flex gap-4 overflow-auto lg:max-h-min lg:flex-1 lg:justify-start px-4 lg:px-0 xl:flex-col`}
+                class={`flex gap-4 overflow-auto lg:max-h-min lg:flex-1 lg:justify-start xl:flex-col`}
               >
                 {images.map((img, index) => (
                   <li class="min-w-[75px] lg:h-fit lg:min-w-[100px]">
@@ -368,7 +368,7 @@ function Details({
           </div>
 
           {/* Product Info */}
-          <div class="w-full px-4 lg:pr-0 lg:pl-6">
+          <div class="w-full lg:pr-0 lg:pl-6">
             <ProductInfo
               page={page}
               shipmentPolitics={shipmentPolitics}
