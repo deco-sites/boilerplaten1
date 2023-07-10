@@ -136,19 +136,18 @@ function ProductInfo(
           : <OutOfStock productID={productID} />}
       </div>
       {/* Description card */}
-      <div className="collapse collapse-plus border-b border-neutral">
-        <input type="checkbox" />
-        <div className="collapse-title px-0">
+      <details className="collapse collapse-plus border-b border-neutral rounded-none">
+        <summary className="collapse-title px-0">
           Detalhes do produto
-        </div>
-        <div className="readmore text-xs leading-tight collapse-content text-base-300">
+        </summary>
+        <div className="readmore text-xs px-0 leading-tight collapse-content text-base-300">
           <input type="checkbox" id="readmore" className="readmore-toggle" />
           <label htmlFor="readmore" className="readmore-label my-2 block">
             + Ler mais
           </label>
           <p className="readmore-content">{description}</p>
         </div>
-      </div>
+      </details>
       {/* Shipping Simulation */}
       <div className="collapse collapse-plus">
         <input type="checkbox" />
@@ -369,7 +368,7 @@ function Details({
           </div>
 
           {/* Product Info */}
-          <div class="px-4 lg:pr-0 lg:pl-6 lg:w-[40vw]">
+          <div class="w-full px-4 lg:pr-0 lg:pl-6">
             <ProductInfo
               page={page}
               shipmentPolitics={shipmentPolitics}
@@ -433,7 +432,7 @@ function ProductDetails(
     : maybeVar;
 
   return (
-    <div class="container py-0 lg:pb-10">
+    <div class="py-0 lg:pb-10">
       {page
         ? (
           <Details
