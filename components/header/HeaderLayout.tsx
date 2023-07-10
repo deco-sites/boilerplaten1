@@ -31,9 +31,9 @@ function HeaderLayout(
   }: Props,
 ) {
   return (
-    <header class="z-50 lg:p-0 py-4">
+    <header class="z-50 lg:p-0 py-2">
       <div class="flex justify-between items-center lg:p-0">
-        <div class="flex items-center">
+        <div class="flex items-center gap-5">
           <Buttons variant="menu" />
           <a href="/" class="" aria-label="Store logo">
             <Icon id="Logo" width={120} height={27} />

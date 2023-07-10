@@ -8,20 +8,12 @@ export interface Props {
 function MenuItem({ item }: { item: INavItem }) {
   const component = item?.children?.length
     ? (
-      <div class="collapse collapse-plus relative block pt-2.5">
+      <div class="collapse collapse-plus relative items-start">
         <input
           type="checkbox"
           class="absolute left-0 w-full h-full top-0"
-          style={{
-            minHeight: "0px",
-          }}
         />
-        <div
-          class="collapse-title p-0 pb-2.5 font-dm-sans font-normal text-sm px-0 flex items-center justify-between"
-          style={{
-            minHeight: "0px",
-          }}
-        >
+        <div class="collapse-title min-h-0 p-0 py-2.5 font-dm-sans font-normal text-sm px-0 flex items-center justify-between">
           {item.label}
         </div>
         <div class="collapse-content px-0">
@@ -29,12 +21,9 @@ function MenuItem({ item }: { item: INavItem }) {
             {item.children?.map((node) => (
               <li class="">
                 <a
-                  style={{
-                    color: "#727272",
-                  }}
                   href={node.href}
                   title={node.label}
-                  class={`w-full block pt-5 font-dm-sans font-normal text-sm ${
+                  class={`w-full block pt-5 font-dm-sans font-normal text-base-300 text-sm ${
                     item.highlighted ? "text-secondary" : ""
                   }`}
                 >
@@ -50,7 +39,7 @@ function MenuItem({ item }: { item: INavItem }) {
       <a
         href={item.href}
         title={item.label}
-        class={`w-full block pb-2.5 pt-2.5 font-dm-sans font-normal text-sm ${
+        class={`w-full block py-2.5 font-dm-sans font-normal text-sm ${
           item.highlighted ? "text-secondary" : ""
         }`}
       >
@@ -112,12 +101,8 @@ function Menu({ items }: Props) {
           </a>
         ))}
       </div>
-      <ul class="flex-grow flex flex-col" id="menu">
-        {items.map((item) => (
-          <li class="relative block">
-            <MenuItem item={item} />
-          </li>
-        ))}
+      <ul class="flex-grow flex flex-col">
+        {items.map((item) => <MenuItem item={item} />)}
       </ul>
     </div>
   );
