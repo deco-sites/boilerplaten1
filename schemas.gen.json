@@ -72,6 +72,7 @@
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
               "./islands/Newsletter.tsx",
+              "./islands/NewsletterModal.tsx",
               "./islands/OutOfStock.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/SearchControls.tsx",
@@ -124,6 +125,7 @@
               "deco-sites/boilerplaten1/sections/Miscellaneous/CookieConsent.tsx",
               "deco-sites/boilerplaten1/sections/Miscellaneous/NotFound.tsx",
               "deco-sites/boilerplaten1/sections/Newsletter/Newsletter.tsx",
+              "deco-sites/boilerplaten1/sections/Newsletter/NewsletterModal.tsx",
               "deco-sites/boilerplaten1/sections/Product/ProductDetails.tsx",
               "deco-sites/boilerplaten1/sections/Product/ProductShelf.tsx",
               "deco-sites/boilerplaten1/sections/Product/SearchResult.tsx",
@@ -7460,6 +7462,115 @@
       ],
       "title": "deco-sites/boilerplaten1/components/newsletter/Newsletter.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps": {
+      "type": "object",
+      "properties": {
+        "show": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide input?"
+        },
+        "placeholder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "placeholder"
+        }
+      },
+      "required": [],
+      "title": "INewsletterInputProps"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterFormProps": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps",
+          "title": "Email"
+        },
+        "name": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterInputProps",
+          "title": "Name"
+        },
+        "button": {
+          "type": "object",
+          "properties": {
+            "variant": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "primary",
+                  "default": "primary"
+                },
+                {
+                  "type": "string",
+                  "const": "secondary",
+                  "default": "secondary"
+                },
+                {
+                  "type": "string",
+                  "const": "accent",
+                  "default": "accent"
+                },
+                {
+                  "type": "string",
+                  "const": "outline",
+                  "default": "outline"
+                }
+              ],
+              "type": "string",
+              "title": "Variant"
+            },
+            "label": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Label"
+            }
+          },
+          "required": [],
+          "title": "Button"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "button"
+      ],
+      "title": "INewsletterFormProps"
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "form": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@INewsletterFormProps",
+          "title": "Newsletter Form"
+        },
+        "text": {
+          "type": "string",
+          "title": "newsletter message text?",
+          "format": "html"
+        },
+        "modalSignExpiredDate": {
+          "type": "number",
+          "title": "Days to reopen modal if it is registered"
+        },
+        "modalCloseExpiredDate": {
+          "type": "number",
+          "title": "Days to reopen moda if it is closed"
+        }
+      },
+      "required": [
+        "form",
+        "text",
+        "modalSignExpiredDate",
+        "modalCloseExpiredDate"
+      ],
+      "title": "deco-sites/boilerplaten1/components/ui/NewsletterModal.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -9366,7 +9477,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors": {
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&e805b1185109511d3e358b191ec7a678": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors"
@@ -9382,7 +9493,7 @@
           "required": []
         }
       ],
-      "title": "7ce107c88554f1ca364eabc6a824a42e&Colors"
+      "title": "Colors&e805b1185109511d3e358b191ec7a678"
     },
     "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Miscellaneous": {
       "type": "object",
@@ -9485,7 +9596,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@7ce107c88554f1ca364eabc6a824a42e&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS9EZXNpZ25TeXN0ZW0udHN4@Colors&e805b1185109511d3e358b191ec7a678",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -15773,6 +15884,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL05ld3NsZXR0ZXJNb2RhbC50c3g=": {
+      "title": "./islands/NewsletterModal.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/NewsletterModal.tsx"
+          ],
+          "default": "./islands/NewsletterModal.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL091dE9mU3RvY2sudHN4": {
       "title": "./islands/OutOfStock.tsx",
       "type": "object",
@@ -16831,6 +16963,27 @@
             "deco-sites/boilerplaten1/sections/Newsletter/Newsletter.tsx"
           ],
           "default": "deco-sites/boilerplaten1/sections/Newsletter/Newsletter.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlck1vZGFsLnRzeA==": {
+      "title": "deco-sites/boilerplaten1/sections/Newsletter/NewsletterModal.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlck1vZGFsLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/boilerplaten1/sections/Newsletter/NewsletterModal.tsx"
+          ],
+          "default": "deco-sites/boilerplaten1/sections/Newsletter/NewsletterModal.tsx"
         }
       }
     },
@@ -18104,6 +18257,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL05ld3NsZXR0ZXJNb2RhbC50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL091dE9mU3RvY2sudHN4"
         },
         {
@@ -18282,6 +18438,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlck1vZGFsLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9ib2lsZXJwbGF0ZW4xL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdERldGFpbHMudHN4"
