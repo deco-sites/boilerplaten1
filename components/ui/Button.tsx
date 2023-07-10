@@ -12,7 +12,7 @@ export type Props =
 const Button = forwardRef<HTMLButtonElement, Props>(({
   type = "button",
   class: _class = "",
-  loading ,
+  loading,
   disabled,
   children,
   iconId,
