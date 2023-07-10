@@ -195,6 +195,7 @@ function NewsletterModal(
               onClick={() =>
                 setCookieOnCloseModal("closed", modalCloseExpiredDate)}
               class="btn btn-sm btn-circle btn-ghost focus:outline-none"
+              aria-label="Fechar"
             >
               <Icon
                 id="XMark"
@@ -251,7 +252,7 @@ function NewsletterModal(
             onClick={() =>
               setCookieOnCloseModal("closed", modalCloseExpiredDate)}
           >
-            close
+            fechar
           </button>
         </form>
       </dialog>
