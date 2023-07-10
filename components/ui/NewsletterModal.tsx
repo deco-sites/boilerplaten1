@@ -72,7 +72,8 @@ interface InputNewletterProps {
 
 export const loader = (props: Props, req: Request) => {
   const cookies = getCookies(req.headers);
-  const isOpen = !!cookies["DecoNewsletterModal"];
+  const cookieEmpty = Object.keys(cookies).length === 0;
+  const isOpen = cookieEmpty ? false : Boolean(!cookies["DecoNewsletterModal"]);
 
   return { ...props, isOpen };
 };
@@ -107,7 +108,7 @@ function NewsletterModal(
   const success = useSignal(false);
 
   useEffect(() => {
-    if (isOpen !== true) {
+    if (isOpen) {
       modalRef.current?.showModal();
     }
   }, [isOpen]);
@@ -133,13 +134,12 @@ function NewsletterModal(
       loading.value = false;
       success.value = true;
 
-      if (success.value === true) {
-        setCookieOnCloseModal("registed", modalSignExpiredDate);
-      }
+      setCookieOnCloseModal("registed", modalSignExpiredDate);
 
       setTimeout(() => {
         success.value = false;
-      }, 5000);
+        modalRef.current?.close();
+      }, 2000);
     }
   };
 
@@ -183,15 +183,24 @@ function NewsletterModal(
 
   return (
     <>
-      <dialog id="my_modal_3" ref={modalRef} class="modal">
-        <form method="dialog" class="modal-box overflow-y-visible">
+      <dialog
+        ref={modalRef}
+        class="modal bg-primary-content bg-opacity-70"
+      >
+        <form method="dialog" class="modal-box overflow-visible p-10">
           <div class="flex text-secondary-content justify-center items-center absolute right-2 -top-10">
             <p class="font-normal">Não quero desconto</p>
+
             <button
-              onClick={() => setCookieOnCloseModal("closed", 10)}
+              onClick={() =>
+                setCookieOnCloseModal("closed", modalCloseExpiredDate)}
               class="btn btn-sm btn-circle btn-ghost focus:outline-none"
             >
-              ✕
+              <Icon
+                id="XMark"
+                width={20}
+                height={20}
+              />
             </button>
           </div>
           {success.value
@@ -203,7 +212,7 @@ function NewsletterModal(
             : (
               <>
                 <Icon
-                  class="mx-auto mb-5 mt-4 block"
+                  class="mx-auto mb-5 block"
                   id="Logo"
                   width={120}
                   height={27}
