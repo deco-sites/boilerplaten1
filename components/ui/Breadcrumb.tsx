@@ -9,7 +9,7 @@ function Breadcrumb({ class: _class, itemListElement = [] }: Props) {
   const items = [{ name: "Home", item: "/" }, ...itemListElement];
 
   return (
-    <div class={`breadcrumbs py-5 px-3 ${_class}`}>
+    <div class={`breadcrumbs py-5 ${_class}`}>
       <ul class={``}>
         {items
           .filter(({ name, item }) => name && item)
