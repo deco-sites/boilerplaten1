@@ -160,19 +160,19 @@ function Footer(
               id="accordion-container--footer"
             >
               {sections.map((section) => (
-                <div class="collapse collapse-plus w-full">
+                <div class="collapse collapse-plus w-full rounded-none">
                   <input
                     type="checkbox"
                     name="my-accordion-mobile--footer"
                     class="absolute left-0 w-full h-full top-0"
                   />
-                  <div class="collapse-title text-base-content font-medium pl-0 flex items-center justify-between pr-0">
+                  <div class="collapse-title border-b border-base-content py-2.5 text-base-content font-medium pl-0 flex items-center justify-between pr-0">
                     {section.label}
                   </div>
-                  <div class="collapse-content border-t border-base-content pl-0">
+                  <div class="collapse-content pl-0">
                     <ul class="pt-5 pb-2">
                       {section.children.map((item) => (
-                        <li class="leading-normal">
+                        <li class="leading-normal py-1">
                           <SectionItem item={item} />
                         </li>
                       ))}
@@ -183,12 +183,12 @@ function Footer(
             </div>
 
             <div class="max-md:mt-5 mt-16 flex items-end w-full justify-between max-lg:flex-col max-lg:gap-7">
-              <div class="flex items-center gap-8 max-md:flex-col flex-row max-md:items-start">
+              <div class="flex items-center gap-8 w-full max-md:flex-col flex-row max-md:items-start">
                 <FooterSectionList label="Pagamentos" list={payments} />
                 <FooterSectionList label="Segurança" list={securities} />
               </div>
 
-              <ul class="flex items-center max-lg:justify-center flex-wrap gap-8">
+              <ul class="flex items-center w-full lg:w-auto max-lg:justify-center flex-wrap gap-8">
                 {poweredby?.map((item) => (
                   <li class="flex items-center gap-2">
                     <span class="text-neutral text-[10px]">
