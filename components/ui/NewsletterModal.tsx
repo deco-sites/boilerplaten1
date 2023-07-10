@@ -72,7 +72,7 @@ interface InputNewletterProps {
 
 export const loader = (props: Props, req: Request) => {
   const cookies = getCookies(req.headers);
-  const cookieEmpty = Object.keys(cookies).length === 0;
+  const cookieEmpty = req.method === "POST";
   const isOpen = cookieEmpty ? false : Boolean(!cookies["DecoNewsletterModal"]);
 
   return { ...props, isOpen };
@@ -134,7 +134,7 @@ function NewsletterModal(
       loading.value = false;
       success.value = true;
 
-      setCookieOnCloseModal("registed", modalSignExpiredDate);
+      setCookieOnCloseModal("registered", modalSignExpiredDate);
 
       setTimeout(() => {
         success.value = false;
