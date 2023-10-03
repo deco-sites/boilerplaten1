@@ -8,7 +8,6 @@ import { invoke } from "$store/runtime.ts";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 import { useEffect, useRef } from "preact/compat";
-import { getCookies } from "std/http/mod.ts";
 
 export interface INewsletterInputProps {
   /**
@@ -67,14 +66,6 @@ interface InputNewletterProps {
   required: boolean;
 }
 
-export const loader = (props: Props, req: Request) => {
-  const cookies = getCookies(req.headers);
-  const cookieEmpty = req.method === "POST";
-  const isOpen = cookieEmpty ? false : Boolean(!cookies["DecoNewsletterModal"]);
-
-  return { ...props, isOpen };
-};
-
 function InputNewsletter(
   { name, placeholder, required, type }: InputNewletterProps,
 ) {
@@ -96,9 +87,7 @@ function NewsletterModal(
     text,
     modalSignExpiredDate,
     modalCloseExpiredDate,
-  }: SectionProps<
-    ReturnType<typeof loader>
-  >,
+  }: Props & { isOpen: boolean },
 ) {
   const modalRef = useRef<HTMLDialogElement>(null);
   const loading = useSignal(false);
@@ -121,6 +110,7 @@ function NewsletterModal(
 
       let name = "";
 
+      //todo: resolver erro do name
       if (form?.name?.show) {
         name = (e.currentTarget.elements.namedItem("name") as RadioNodeList)
           ?.value;
